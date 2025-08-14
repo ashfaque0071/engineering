@@ -1,0 +1,3886 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Engineering Study Resources</title>
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <style>
+        /* All your original CSS remains unchanged */
+        * {  
+            margin: 0;  
+            padding: 0;  
+            box-sizing: border-box;  
+        }  
+  
+        /* Enhanced Color Palette & Typography */  
+       :root {  
+  /* These will be dynamically updated by the color picker */  
+  --primary-color: #6366f1;  
+  --primary-light: #818cf8;  
+  --secondary-color: #8b5cf6;  
+  --accent-color: #06d6a0;  
+  --text-color: #1e293b;  
+  --text-light: #64748b;  
+  --text-muted: #94a3b8;  
+  --bg-color: linear-gradient(135deg, #667eea 0%, #764ba2 100%);  
+  --card-bg: rgba(255, 255, 255, 0.25);  
+  --card-bg-solid: rgba(255, 255, 255, 0.9);  
+  --nav-bg: rgba(255, 255, 255, 0.15);  
+  --border-color: rgba(255, 255, 255, 0.2);  
+  --shadow-color: rgba(0, 0, 0, 0.1);  
+  --glass-blur: blur(16px);  
+  --highlight-bg: linear-gradient(135deg, #fbbf24, #f59e0b);  
+  --highlight-border: #f59e0b;  
+    
+  /* Typography Scale */  
+  --font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;  
+  --font-weight-light: 300;  
+  --font-weight-regular: 400;  
+  --font-weight-medium: 500;  
+  --font-weight-semibold: 600;  
+  --font-weight-bold: 700;  
+  --line-height-tight: 1.2;  
+  --line-height-normal: 1.5;  
+  --line-height-relaxed: 1.7;  
+}  
+  
+        /* Dark Mode - Deep Blues/Purples  Cyan Accents */  
+        body.dark-mode {  
+            --primary-color: #06d6a0;  
+            --primary-light: #40e0d0;  
+            --secondary-color: #7c3aed;  
+            --accent-color: #06d6a0;  
+            --text-color: #f1f5f9;  
+            --text-light: #cbd5e1;  
+            --text-muted: #94a3b8;  
+            --bg-color: linear-gradient(135deg, #0f172a 0%, #1e1b4b 50%, #312e81 100%);  
+            --card-bg: rgba(15, 23, 42, 0.4);  
+            --card-bg-solid: rgba(30, 41, 59, 0.95);  
+            --nav-bg: rgba(15, 23, 42, 0.6);  
+            --border-color: rgba(6, 214, 160, 0.2);  
+            --shadow-color: rgba(0, 0, 0, 0.3);  
+            --glass-blur: blur(20px);  
+            --highlight-bg: linear-gradient(135deg, #06d6a0, #40e0d0);  
+            --highlight-border: #06d6a0;  
+        }  
+  
+        body {  
+            font-family: var(--font-family);  
+            font-weight: var(--font-weight-regular);  
+            line-height: var(--line-height-normal);  
+            background: var(--bg-color);  
+            min-height: 100vh;  
+            padding: 20px;  
+            transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);  
+        }  
+  
+        /* Glassmorphism Dashboard Container */  
+        .dashboard {  
+            max-width: 1400px;  
+            margin: 0 auto;  
+            background: var(--card-bg-solid);  
+            backdrop-filter: var(--glass-blur);  
+            -webkit-backdrop-filter: var(--glass-blur);  
+            border-radius: 24px;  
+            border: 1px solid var(--border-color);  
+            box-shadow:   
+                0 8px 32px rgba(0, 0, 0, 0.1),  
+                0 1px 0 rgba(255, 255, 255, 0.1) inset;  
+            overflow: hidden;  
+            transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);  
+        }  
+  
+        /* Enhanced Header  Better Typography */  
+        .header {  
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));  
+            color: white;  
+            padding: 40px 30px;  
+            text-align: center;  
+            position: relative;  
+            overflow: hidden;  
+        }  
+  
+        .header::before {  
+            content: '';  
+            position: absolute;  
+            top: 0;  
+            left: 0;  
+            right: 0;  
+            bottom: 0;  
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="1" fill="white" opacity="0.03"/><circle cx="75" cy="75" r="1" fill="white" opacity="0.03"/><circle cx="75" cy="25" r="1" fill="white" opacity="0.03"/><circle cx="25" cy="75" r="1" fill="white" opacity="0.03"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');  
+            pointer-events: none;  
+        }  
+  
+        .header h1 {  
+            font-size: 3rem;  
+            font-weight: var(--font-weight-bold);  
+            line-height: var(--line-height-tight);  
+            margin-bottom: 12px;  
+            letter-spacing: -0.025em;  
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);  
+            position: relative;  
+            z-index: 1;  
+        }  
+  
+        .header p {  
+            opacity: 0.9;  
+            font-size: 1.125rem;  
+            font-weight: var(--font-weight-medium);  
+            line-height: var(--line-height-normal);  
+            position: relative;  
+            z-index: 1;  
+        }  
+  
+        /* Dark Mode Toggle - Fixed positioning */  
+        .dark-mode-toggle {  
+            position: absolute;  
+            top: 24px;  
+            right: 24px;  
+            background: rgba(255, 255, 255, 0.15);  
+            backdrop-filter: blur(10px);  
+            -webkit-backdrop-filter: blur(10px);  
+            border: 1px solid rgba(255, 255, 255, 0.2);  
+            width: 48px;  
+            height: 48px;  
+            border-radius: 50%;  
+            display: flex;  
+            align-items: center;  
+            justify-content: center;  
+            cursor: pointer;  
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);  
+            z-index: 10;  
+        }  
+  
+        .dark-mode-toggle:hover {  
+            background: rgba(255, 255, 255, 0.25);  
+            transform: scale(1.1) rotate(10deg);  
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);  
+        }  
+  
+        .dark-mode-toggle i {  
+            color: white;  
+            font-size: 1.25rem;  
+        }  
+  /* Enhanced Color Picker Modal */  
+.color-picker-modal {  
+  position: fixed;  
+  top: 50%;  
+  left: 50%;  
+  transform: translate(-50%, -50%);  
+  background: var(--card-bg-solid);  
+  backdrop-filter: var(--glass-blur);  
+  -webkit-backdrop-filter: var(--glass-blur);  
+  padding: 24px;  
+  border-radius: 16px;  
+  border: 1px solid var(--border-color);  
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.2);  
+  z-index: 100;  
+  display: none;  
+  width: 400px;  
+  max-width: 95%;  
+  max-height: 90vh;  
+  overflow-y: auto;  
+}  
+  
+.color-picker-modal.active {  
+  display: block;  
+  animation: fadeInUp 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);  
+}  
+  
+.color-picker-title {  
+  margin-bottom: 20px;  
+  color: var(--text-color);  
+  font-size: 1.5rem;  
+  font-weight: var(--font-weight-semibold);  
+  text-align: center;  
+}  
+  
+.color-picker-tabs {  
+  display: flex;  
+  margin-bottom: 20px;  
+  background: var(--card-bg);  
+  border-radius: 8px;  
+  padding: 4px;  
+}  
+  
+.color-picker-tab {  
+  flex: 1;  
+  padding: 8px 16px;  
+  background: none;  
+  border: none;  
+  border-radius: 6px;  
+  cursor: pointer;  
+  font-weight: var(--font-weight-medium);  
+  color: var(--text-light);  
+  transition: all 0.2s ease;  
+}  
+  
+.color-picker-tab.active {  
+  background: var(--primary-color);  
+  color: white;  
+}  
+  
+.color-picker-section {  
+  display: none;  
+}  
+  
+.color-picker-section.active {  
+  display: block;  
+}  
+  
+.preset-themes {  
+  display: grid;  
+  grid-template-columns: repeat(2, 1fr);  
+  gap: 12px;  
+  margin-bottom: 20px;  
+}  
+  
+.theme-option {  
+  padding: 16px;  
+  border-radius: 12px;  
+  cursor: pointer;  
+  border: 2px solid transparent;  
+  transition: all 0.2s ease;  
+  text-align: center;  
+}  
+  
+.theme-option:hover {  
+  transform: scale(1.02);  
+}  
+  
+.theme-option.selected {  
+  border-color: var(--primary-color);  
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.3);  
+}  
+  
+.theme-name {  
+  font-weight: var(--font-weight-semibold);  
+  margin-bottom: 4px;  
+  font-size: 0.9rem;  
+}  
+  
+.theme-colors {  
+  display: flex;  
+  justify-content: center;  
+  gap: 4px;  
+}  
+  
+.theme-color {  
+  width: 16px;  
+  height: 16px;  
+  border-radius: 50%;  
+  border: 1px solid rgba(255, 255, 255, 0.3);  
+}  
+  
+.color-customization {  
+  display: grid;  
+  gap: 16px;  
+}  
+  
+.color-group {  
+  background: var(--card-bg);  
+  padding: 16px;  
+  border-radius: 12px;  
+  border: 1px solid var(--border-color);  
+}  
+  
+.color-group-title {  
+  font-weight: var(--font-weight-semibold);  
+  margin-bottom: 12px;  
+  color: var(--text-color);  
+  font-size: 1rem;  
+}  
+  
+.color-input-row {  
+  display: flex;  
+  align-items: center;  
+  gap: 12px;  
+  margin-bottom: 12px;  
+}  
+  
+.color-input-row:last-child {  
+  margin-bottom: 0;  
+}  
+  
+.color-input-label {  
+  min-width: 100px;  
+  color: var(--text-color);  
+  font-size: 0.875rem;  
+  font-weight: var(--font-weight-medium);  
+}  
+  
+.color-input-wrapper {  
+  display: flex;  
+  align-items: center;  
+  gap: 8px;  
+  flex: 1;  
+}  
+  
+.color-input-wrapper input[type="color"] {  
+  width: 40px;  
+  height: 40px;  
+  border: 1px solid var(--border-color);  
+  border-radius: 8px;  
+  cursor: pointer;  
+  background: transparent;  
+}  
+  
+.color-input-wrapper input[type="text"] {  
+  flex: 1;  
+  padding: 8px 12px;  
+  border: 1px solid var(--border-color);  
+  border-radius: 8px;  
+  background: var(--card-bg);  
+  color: var(--text-color);  
+  font-family: monospace;  
+}  
+  
+.mode-toggle {  
+  display: flex;  
+  align-items: center;  
+  justify-content: center;  
+  gap: 12px;  
+  margin-bottom: 20px;  
+  padding: 12px;  
+  background: var(--card-bg);  
+  border-radius: 8px;  
+}  
+  
+.mode-toggle label {  
+  color: var(--text-color);  
+  font-weight: var(--font-weight-medium);  
+}  
+  
+.color-picker-actions {  
+  display: flex;  
+  justify-content: space-between;  
+  gap: 12px;  
+  margin-top: 24px;  
+  padding-top: 20px;  
+  border-top: 1px solid var(--border-color);  
+}  
+  
+.color-picker-btn {  
+  padding: 10px 20px;  
+  border-radius: 8px;  
+  border: none;  
+  cursor: pointer;  
+  font-weight: var(--font-weight-medium);  
+  transition: all 0.2s ease;  
+  flex: 1;  
+}  
+  
+.color-picker-btn.reset {  
+  background: #ef4444;  
+  color: white;  
+}  
+  
+.color-picker-btn.apply {  
+  background: var(--primary-color);  
+  color: white;  
+}  
+  
+.color-picker-btn.cancel {  
+  background: var(--card-bg);  
+  color: var(--text-color);  
+  border: 1px solid var(--border-color);  
+}  
+  
+.color-picker-btn:hover {  
+  transform: translateY(-2px);  
+}  
+  
+/* Mobile adjustments */  
+@media (max-width: 768px) {  
+  .color-picker-modal {  
+    width: 350px;  
+  }  
+    
+  .preset-themes {  
+    grid-template-columns: 1fr;  
+  }  
+    
+  .color-input-row {  
+    flex-direction: column;  
+    align-items: stretch;  
+    gap: 8px;  
+  }  
+    
+  .color-input-label {  
+    min-width: auto;  
+  }  
+}  
+  
+@media (max-width: 480px) {  
+  .color-picker-modal {  
+    width: 320px;  
+    padding: 20px;  
+  }  
+    
+  .color-picker-actions {  
+    flex-direction: column;  
+  }  
+}  
+  
+        /* Glassmorphism Navigation - Fixed scrolling */  
+        .nav-tabs {  
+            display: flex;  
+            background: var(--nav-bg);  
+            backdrop-filter: var(--glass-blur);  
+            -webkit-backdrop-filter: var(--glass-blur);  
+            border-bottom: 1px solid var(--border-color);  
+            overflow-x: auto;  
+            scrollbar-width: none; /* Firefox */  
+            -ms-overflow-style: none; /* IE/Edge */  
+        }  
+  
+        .nav-tabs::-webkit-scrollbar {  
+            display: none; /* Chrome/Safari */  
+        }  
+  
+        .nav-tab {  
+            padding: 18px 28px;  
+            background: none;  
+            border: none;  
+            cursor: pointer;  
+            font-size: 1rem;  
+            font-weight: var(--font-weight-medium);  
+            font-family: var(--font-family);  
+            color: var(--text-light);  
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);  
+            white-space: nowrap;  
+            border-bottom: 3px solid transparent;  
+            position: relative;  
+            overflow: hidden;  
+            flex-shrink: 0;  
+        }  
+  
+        .nav-tab::before {  
+            content: '';  
+            position: absolute;  
+            top: 0;  
+            left: 0;  
+            right: 0;  
+            bottom: 0;  
+            background: var(--primary-color);  
+            opacity: 0;  
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);  
+        }  
+  
+        .nav-tab:hover {  
+            color: var(--text-color);  
+            transform: translateY(-2px);  
+        }  
+  
+        .nav-tab:hover::before {  
+            opacity: 0.05;  
+        }  
+  
+        .nav-tab.active {  
+            color: var(--primary-color);  
+            border-bottom-color: var(--primary-color);  
+            background: var(--card-bg);  
+            backdrop-filter: var(--glass-blur);  
+            -webkit-backdrop-filter: var(--glass-blur);  
+            font-weight: var(--font-weight-semibold);  
+        }  
+  
+        .content {  
+            padding: 36px;  
+            background: rgba(255, 255, 255, 0.02);  
+        }  
+  
+        .tab-panel {  
+            display: none;  
+        }  
+  
+        .tab-panel.active {  
+            display: block;  
+            animation: fadeInUp 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);  
+        }  
+  
+        @keyframes fadeInUp {  
+            from {   
+                opacity: 0;   
+                transform: translateY(20px);   
+            }  
+            to {   
+                opacity: 1;   
+                transform: translateY(0);   
+            }  
+        }  
+  
+        .subject-grid {  
+            display: grid;  
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));  
+            gap: 24px;  
+            margin-bottom: 32px;  
+        }  
+  
+        /* Enhanced Glassmorphism Cards - Fixed bookmark positioning */  
+        .subject-card {  
+            background: var(--card-bg);  
+            backdrop-filter: var(--glass-blur);  
+            -webkit-backdrop-filter: var(--glass-blur);  
+            border-radius: 20px;  
+            padding: 28px;  
+            border: 1px solid var(--border-color);  
+            box-shadow:   
+                0 8px 32px rgba(0, 0, 0, 0.1),  
+                0 1px 0 rgba(255, 255, 255, 0.1) inset;  
+            transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);  
+            position: relative;  
+            overflow: hidden;  
+        }  
+  
+        .subject-card::before {  
+            content: '';  
+            position: absolute;  
+            top: 0;  
+            left: 0;  
+            right: 0;  
+            height: 4px;  
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));  
+            border-radius: 20px 20px 0 0;  
+        }  
+  
+        .subject-card:hover {  
+            transform: translateY(-8px) scale(1.02);  
+            box-shadow:   
+                0 20px 60px rgba(0, 0, 0, 0.15),  
+                0 8px 32px rgba(99, 102, 241, 0.2),  
+                0 1px 0 rgba(255, 255, 255, 0.2) inset;  
+            border-color: rgba(99, 102, 241, 0.3);  
+        }  
+  
+        .subject-card h3 {  
+            font-size: 1.375rem;  
+            font-weight: var(--font-weight-semibold);  
+            line-height: var(--line-height-tight);  
+            color: var(--text-color);  
+            margin-bottom: 20px;  
+            letter-spacing: -0.015em;  
+            padding-right: 40px; /* Space for bookmark button */  
+        }  
+  
+        .resource-section {  
+            margin-bottom: 24px;  
+        }  
+  
+        .resource-section:last-child {  
+            margin-bottom: 0;  
+        }  
+  
+        .resource-section h4 {  
+            font-size: 1rem;  
+            font-weight: var(--font-weight-medium);  
+            line-height: var(--line-height-tight);  
+            color: var(--primary-color);  
+            margin-bottom: 12px;  
+            display: flex;  
+            align-items: center;  
+            letter-spacing: 0.025em;  
+            text-transform: uppercase;  
+            font-size: 0.875rem;  
+        }  
+  
+        .resource-section h4::before {  
+            content: '📚';  
+            margin-right: 8px;  
+            font-size: 1rem;  
+        }  
+  
+        .resource-links {  
+            display: flex;  
+            flex-wrap: wrap;  
+            gap: 10px;  
+        }  
+  
+        /* Enhanced Resource Links  Glassmorphism */  
+        .resource-link {  
+            display: inline-block;  
+            padding: 10px 16px;  
+            background: rgba(255, 255, 255, 0.1);  
+            backdrop-filter: blur(10px);  
+            -webkit-backdrop-filter: blur(10px);  
+            color: var(--text-color);  
+            text-decoration: none;  
+            border-radius: 12px;  
+            font-size: 0.875rem;  
+            font-weight: var(--font-weight-medium);  
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);  
+            border: 1px solid rgba(255, 255, 255, 0.15);  
+            line-height: var(--line-height-normal);  
+        }  
+  
+        .resource-link:hover {  
+            background: var(--primary-color);  
+            color: white;  
+            transform: translateY(-3px);  
+            box-shadow: 0 8px 25px rgba(99, 102, 241, 0.3);  
+            border-color: var(--primary-color);  
+        }  
+  
+        /* YouTube Card Special Styling */  
+        .subject-card[data-keywords*="youtube"] {  
+            border-left: 4px solid #FF0000;  
+            background: linear-gradient(135deg, rgba(255, 0, 0, 0.05), var(--card-bg));  
+        }  
+         .subject-card[data-keywords*="youtube"]::before {  
+            background: linear-gradient(90deg, #FF0000, #CC0000) !important;  
+        }  
+  
+        .subject-card[data-keywords*="youtube"] h3 {  
+            color: #FF0000 !important;  
+        }  
+  
+        .subject-card[data-keywords*="youtube"] h3::before {  
+            content: '▶ ';  
+            color: #FF0000;  
+        }  
+  
+        .subject-card[data-keywords*="youtube"] .resource-link {  
+            background: rgba(255, 0, 0, 0.1);  
+            border-color: rgba(255, 0, 0, 0.2);  
+            color: #D32F2F;  
+        }  
+  
+        .subject-card[data-keywords*="youtube"] .resource-link:hover {  
+            background: #FF0000;  
+            color: white;  
+        }  
+  
+        /* Enhanced Search Bar - Fixed layout */  
+        .search-bar {  
+            margin-bottom: 28px;  
+            position: relative;  
+        }  
+  
+        .search-input {  
+            width: 100%;  
+            padding: 16px 160px 16px 24px;  
+            border: 1px solid var(--border-color);  
+            border-radius: 16px;  
+            font-size: 1rem;  
+            font-family: var(--font-family);  
+            font-weight: var(--font-weight-regular);  
+            line-height: var(--line-height-normal);  
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);  
+            background: var(--card-bg);  
+            backdrop-filter: var(--glass-blur);  
+            -webkit-backdrop-filter: var(--glass-blur);  
+            color: var(--text-color);  
+        }  
+  
+        .search-input::placeholder {  
+            color: var(--text-muted);  
+            font-weight: var(--font-weight-regular);  
+        }  
+  
+        .search-input:focus {  
+            outline: none;  
+            border-color: var(--primary-color);  
+            box-shadow:   
+                0 0 0 4px rgba(99, 102, 241, 0.1),  
+                0 8px 25px rgba(99, 102, 241, 0.15);  
+            background: var(--card-bg-solid);  
+        }  
+  
+        /* Search Controls - Fixed positioning */  
+        .search-controls {  
+            position: absolute;  
+            right: 12px;  
+            top: 50%;  
+            transform: translateY(-50%);  
+            display: flex;  
+            align-items: center;  
+            gap: 12px;  
+        }  
+  
+        .search-mode-toggle {  
+            padding: 10px 16px;  
+            background: var(--primary-color);  
+            color: white;  
+            border: none;  
+            border-radius: 12px;  
+            font-size: 0.875rem;  
+            font-family: var(--font-family);  
+            font-weight: var(--font-weight-medium);  
+            cursor: pointer;  
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);  
+            white-space: nowrap;  
+        }  
+  
+        .search-mode-toggle:hover {  
+            background: var(--secondary-color);  
+            transform: translateY(-2px);  
+            box-shadow: 0 6px 20px rgba(99, 102, 241, 0.3);  
+        }  
+  
+        /* Enhanced English Section */  
+        .english-section {  
+            background: var(--card-bg);  
+            backdrop-filter: var(--glass-blur);  
+            -webkit-backdrop-filter: var(--glass-blur);  
+            border-radius: 20px;  
+            padding: 32px;  
+            border: 1px solid var(--border-color);  
+            box-shadow:   
+                0 8px 32px rgba(0, 0, 0, 0.1),  
+                0 1px 0 rgba(255, 255, 255, 0.1) inset;  
+        }  
+  
+        .english-resources {  
+            display: grid;  
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));  
+            gap: 24px;  
+        }  
+  
+        .english-card {  
+            background: rgba(255, 255, 255, 0.05);  
+            backdrop-filter: blur(8px);  
+            -webkit-backdrop-filter: blur(8px);  
+            padding: 24px;  
+            border-radius: 16px;  
+            border: 1px solid rgba(255, 255, 255, 0.1);  
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);  
+            position: relative;  
+        }  
+  
+        .english-card:hover {  
+            transform: translateY(-4px);  
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.1);  
+            border-color: rgba(99, 102, 241, 0.2);  
+        }  
+  
+        .english-card h4 {  
+            color: var(--text-color);  
+            margin-bottom: 16px;  
+            font-size: 1.125rem;  
+            font-weight: var(--font-weight-semibold);  
+            line-height: var(--line-height-tight);  
+        }  
+  
+        .english-links {  
+            list-style: none;  
+        }  
+  
+        .english-links li {  
+            margin-bottom: 10px;  
+        }  
+  
+        .english-links a {  
+            color: var(--primary-color);  
+            text-decoration: none;  
+            font-weight: var(--font-weight-medium);  
+            line-height: var(--line-height-normal);  
+            transition: all 0.2s ease;  
+        }  
+  
+        .english-links a:hover {  
+            color: var(--secondary-color);  
+        }  
+  
+        /* Search Result Highlighting */  
+        .search-highlight {  
+            background: var(--highlight-bg) !important;  
+            border: 2px solid var(--highlight-border) !important;  
+            transform: scale(1.02) !important;  
+            box-shadow: 0 12px 40px rgba(245, 158, 11, 0.3) !important;  
+        }  
+  
+        /* No Results Message */  
+        .no-results {  
+            text-align: center;  
+            padding: 48px;  
+            color: var(--text-light);  
+            font-size: 1.125rem;  
+            font-weight: var(--font-weight-regular);  
+            line-height: var(--line-height-relaxed);  
+            background: var(--card-bg);  
+            backdrop-filter: var(--glass-blur);  
+            -webkit-backdrop-filter: var(--glass-blur);  
+            border-radius: 20px;  
+            border: 2px dashed var(--border-color);  
+            margin: 24px 0;  
+        }  
+  
+        .no-results h3 {  
+            color: var(--text-color);  
+            margin-bottom: 12px;  
+            font-size: 1.375rem;  
+            font-weight: var(--font-weight-semibold);  
+            line-height: var(--line-height-tight);  
+        }  
+  
+        .no-results p {  
+            color: var(--text-light);  
+            font-size: 1rem;  
+            font-weight: var(--font-weight-regular);  
+        }  
+  
+        /* Bookmark System - Fixed positioning */  
+        .bookmark-btn {  
+            background: none;  
+            border: none;  
+            cursor: pointer;  
+            font-size: 1.25rem;  
+            color: var(--text-muted);  
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);  
+            position: absolute;  
+            top: 20px;  
+            right: 20px;  
+            z-index: 2;  
+            padding: 8px;  
+            border-radius: 8px;  
+        }  
+  
+        .bookmark-btn:hover {  
+            color: #ffd700;  
+            transform: scale(1.2);  
+            background: rgba(255, 215, 0, 0.1);  
+        }  
+  
+        .bookmark-btn.bookmarked {  
+            color: #ffd700;  
+        }  
+  
+        .bookmark-btn.bookmarked:hover {  
+            color: #ffcc00;  
+        }  
+  
+        .bookmarks-section {  
+            background: var(--card-bg);  
+            backdrop-filter: var(--glass-blur);  
+            -webkit-backdrop-filter: var(--glass-blur);  
+            border-radius: 20px;  
+            padding: 32px;  
+            margin-top: 32px;  
+            border: 1px solid var(--border-color);  
+            box-shadow:   
+                0 8px 32px rgba(0, 0, 0, 0.1),  
+                0 1px 0 rgba(255, 255, 255, 0.1) inset;  
+        }  
+  
+        .bookmarks-section h3 {  
+            color: var(--text-color);  
+            margin-bottom: 24px;  
+            padding-bottom: 16px;  
+            border-bottom: 2px solid var(--border-color);  
+            display: flex;  
+            align-items: center;  
+            font-size: 1.5rem;  
+            font-weight: var(--font-weight-semibold);  
+            line-height: var(--line-height-tight);  
+        }  
+  
+        .bookmarks-section h3 i {  
+            margin-right: 12px;  
+            color: #ffd700;  
+        }  
+  
+        .bookmarks-grid {  
+            display: grid;  
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));  
+            gap: 20px;  
+        }  
+  
+        .bookmarks-empty {  
+            text-align: center;  
+            padding: 48px 24px;  
+            color: var(--text-light);  
+            font-style: italic;  
+            grid-column: 1 / -1;  
+            font-size: 1.125rem;  
+            line-height: var(--line-height-relaxed);  
+        }  
+  
+        /* Site Footer - Fixed positioning */  
+        .site-footer {  
+            text-align: center;  
+            padding: 24px 0;  
+            margin: 40px auto 0;  
+            width: 100%;  
+            font-size: 0.9375rem;  
+            font-weight: var(--font-weight-regular);  
+            background: transparent !important;  
+            border-top: 1px solid rgba(255, 255, 255, 0.15);  
+            color: rgba(255, 255, 255, 0.8);  
+        }  
+  
+        .site-footer strong {  
+            font-weight: var(--font-weight-semibold);  
+            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);  
+        }  
+  
+        body.dark-mode .site-footer {  
+            color: var(--text-light);  
+            border-color: var(--border-color);  
+        }  
+  
+        body.dark-mode .site-footer strong {  
+            color: var(--primary-light);  
+            text-shadow: none;  
+        }  
+  
+        /* Animation for bookmarking */  
+        @keyframes pulse {  
+            0% { transform: scale(1); }  
+            50% { transform: scale(1.3); }  
+            100% { transform: scale(1); }  
+        }  
+  
+        .pulse {  
+            animation: pulse 0.3s ease;  
+        }  
+  
+        /* Mobile Responsive Updates - Fixed all mobile issues */  
+        @media (max-width: 768px) {  
+            body {  
+                padding: 10px;  
+            }  
+  
+            .dashboard {  
+                border-radius: 16px;  
+            }  
+  
+            .header {  
+                padding: 32px 20px;  
+            }  
+  
+            .header h1 {  
+                font-size: 2.25rem;  
+            }  
+  
+            .dark-mode-toggle {  
+                top: 16px;  
+                right: 16px;  
+                width: 40px;  
+                height: 40px;  
+            }  
+  
+            .dark-mode-toggle i {  
+                font-size: 1rem;  
+            }  
+              
+            .subject-grid {  
+                grid-template-columns: 1fr;  
+                gap: 16px;  
+            }  
+              
+            .nav-tabs {  
+                justify-content: flex-start;  
+                padding: 0 10px;  
+            }  
+  
+            .nav-tab {  
+                padding: 16px 20px;  
+                font-size: 0.9rem;  
+            }  
+  
+            .search-input {  
+                padding: 14px 140px 14px 20px;  
+                font-size: 0.9rem;  
+            }  
+              
+            .search-mode-toggle {  
+                font-size: 0.8125rem;  
+                padding: 8px 12px;  
+            }  
+              
+            .search-controls {  
+                gap: 8px;  
+                right: 8px;  
+            }  
+  
+            .content {  
+                padding: 24px 20px;  
+            }  
+  
+            .subject-card {  
+                padding: 20px;  
+            }  
+  
+            .subject-card h3 {  
+                font-size: 1.25rem;  
+                padding-right: 35px;  
+            }  
+  
+            .bookmark-btn {  
+                top: 15px;  
+                right: 15px;  
+                font-size: 1.1rem;  
+                padding: 6px;  
+            }  
+  
+            .english-resources {  
+                grid-template-columns: 1fr;  
+                gap: 16px;  
+            }  
+  
+            .english-card {  
+                padding: 20px;  
+            }  
+  
+            .bookmarks-section {  
+                padding: 24px 20px;  
+            }  
+  
+            .bookmarks-grid {  
+                grid-template-columns: 1fr;  
+                gap: 16px;  
+            }  
+        }  
+  
+        @media (max-width: 480px) {  
+            body {  
+                padding: 8px;  
+            }  
+  
+            .header {  
+                padding: 24px 16px;  
+            }  
+  
+            .header h1 {  
+                font-size: 2rem;  
+            }  
+  
+            .dark-mode-toggle {  
+                top: 12px;  
+                right: 12px;  
+                width: 36px;  
+                height: 36px;  
+            }  
+  
+            .dark-mode-toggle i {  
+                font-size: 0.9rem;  
+            }  
+  
+            .nav-tab {  
+                padding: 14px 16px;  
+                font-size: 0.85rem;  
+            }  
+  
+            .search-input {  
+                padding: 12px 120px 12px 16px;  
+                font-size: 0.85rem;  
+            }  
+              
+            .search-mode-toggle {  
+                font-size: 0.75rem;  
+                padding: 6px 10px;  
+            }  
+  
+            .content {  
+                padding: 20px 16px;  
+            }  
+  
+            .subject-card {  
+                padding: 16px;  
+            }  
+  
+            .subject-card h3 {  
+                font-size: 1.125rem;  
+                padding-right: 30px;  
+            }  
+  
+            .bookmark-btn {  
+                top: 12px;  
+                right: 12px;  
+                font-size: 1rem;  
+                padding: 4px;  
+            }  
+  
+            .resource-section h4 {  
+                font-size: 0.8125rem;  
+            }  
+  
+            .resource-link {  
+                padding: 8px 12px;  
+                font-size: 0.8125rem;  
+            }  
+  
+            .english-card {  
+                padding: 16px;  
+            }  
+  
+            .english-card h4 {  
+                font-size: 1rem;  
+            }  
+  
+            .bookmarks-section {  
+                padding: 20px 16px;  
+            }  
+  
+            .bookmarks-section h3 {  
+                font-size: 1.25rem;  
+            }  
+  
+            .no-results {  
+                padding: 32px 20px;  
+                font-size: 1rem;  
+            }  
+  
+            .no-results h3 {  
+                font-size: 1.25rem;  
+            }  
+        }  
+  
+        /* Fix for very small screens */ 
+         @media (max-width: 320px) {  
+            body {  
+                padding: 5px;  
+            }  
+  
+            .header h1 {  
+                font-size: 1.75rem;  
+            }  
+  
+            .nav-tab {  
+                padding: 12px 14px;  
+                font-size: 0.8rem;  
+            }  
+  
+            .search-input {  
+                padding: 10px 100px 10px 14px;  
+                font-size: 0.8rem;  
+            }  
+  
+            .search-mode-toggle {  
+                font-size: 0.7rem;  
+                padding: 5px 8px;  
+            }  
+  
+            .content {  
+                padding: 16px 12px;  
+            }  
+  
+            .subject-card {  
+                padding: 14px;  
+            }  
+  
+            .subject-card h3 {  
+                font-size: 1rem;  
+                padding-right: 28px;  
+            }  
+  
+            .resource-link {  
+                padding: 6px 10px;  
+                font-size: 0.75rem;  
+            }  
+        }  
+  
+        /* Accessibility improvements */  
+        @media (prefers-reduced-motion: reduce) {  
+            * {  
+                animation-duration: 0.01ms !important;  
+                animation-iteration-count: 1 !important;  
+                transition-duration: 0.01ms !important;  
+            }  
+        }  
+  
+        /* High contrast mode support */  
+        @media (prefers-contrast: high) {  
+            :root {  
+                --border-color: rgba(0, 0, 0, 0.5);  
+                --text-muted: #666;  
+            }  
+  
+            body.dark-mode {  
+                --border-color: rgba(255, 255, 255, 0.5);  
+                --text-muted: #ccc;  
+            }  
+        }  
+  
+        /* Focus styles for better accessibility */  
+        .nav-tab:focus,  
+        .search-input:focus,  
+        .search-mode-toggle:focus,  
+        .dark-mode-toggle:focus,  
+        .bookmark-btn:focus,  
+        .resource-link:focus {  
+            outline: 2px solid var(--primary-color);  
+            outline-offset: 2px;  
+        }  
+  
+        /* Loading state for cards */  
+        .subject-card.loading {  
+            opacity: 0.7;  
+            pointer-events: none;  
+        }  
+  
+        .subject-card.loading::after {  
+            content: '';  
+            position: absolute;  
+            top: 50%;  
+            left: 50%;  
+            width: 20px;  
+            height: 20px;  
+            margin: -10px 0 0 -10px;  
+            border: 2px solid var(--primary-color);  
+            border-top: 2px solid transparent;  
+            border-radius: 50%;  
+            animation: spin 1s linear infinite;  
+        }  
+  
+        @keyframes spin {  
+            0% { transform: rotate(0deg); }  
+            100% { transform: rotate(360deg); }  
+        }  
+  
+        /* Smooth scrolling for navigation */  
+        html {  
+            scroll-behavior: smooth;  
+        }  
+  
+        /* Print styles */  
+        @media print {  
+            body {  
+                background: white !important;  
+                color: black !important;  
+            }  
+  
+            .dashboard {  
+                box-shadow: none !important;  
+                border: 1px solid #ccc !important;  
+            }  
+  
+            .dark-mode-toggle,  
+            .search-bar,  
+            .bookmark-btn {  
+                display: none !important;  
+            }  
+  
+            .subject-card {  
+                break-inside: avoid;  
+                page-break-inside: avoid;  
+            }  
+        }  
+        /* Theme Notification Styles */  
+.theme-notification {  
+  position: fixed;  
+  top: 20px;  
+  right: 20px;  
+  background: var(--card-bg-solid);  
+  backdrop-filter: var(--glass-blur);  
+  -webkit-backdrop-filter: var(--glass-blur);  
+  border: 1px solid var(--border-color);  
+  border-radius: 12px;  
+  padding: 16px 20px;  
+  display: flex;  
+  align-items: center;  
+  gap: 12px;  
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);  
+  transform: translateX(400px);  
+  opacity: 0;  
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);  
+  z-index: 1000;  
+  max-width: 300px;  
+}  
+  
+.theme-notification.show {  
+  transform: translateX(0);  
+  opacity: 1;  
+}  
+  
+.theme-notification-success {  
+  border-left: 4px solid #10b981;  
+}  
+  
+.theme-notification-success i {  
+  color: #10b981;  
+}  
+  
+.theme-notification-error {  
+  border-left: 4px solid #ef4444;  
+}  
+  
+.theme-notification-error i {  
+  color: #ef4444;  
+}  
+  
+.theme-notification-info {  
+  border-left: 4px solid var(--primary-color);  
+}  
+  
+.theme-notification-info i {  
+  color: var(--primary-color);  
+}  
+  
+.theme-notification span {  
+  color: var(--text-color);  
+  font-weight: var(--font-weight-medium);  
+  font-size: 0.875rem;  
+}  
+  
+/* Mobile notification adjustments */  
+@media (max-width: 768px) {  
+  .theme-notification {  
+    top: 10px;  
+    right: 10px;  
+    left: 10px;  
+    max-width: none;  
+    transform: translateY(-100px);  
+  }  
+    
+  .theme-notification.show {  
+    transform: translateY(0);  
+  }  
+}  
+.color-picker-toggle {  
+    position: absolute;  
+    top: 24px;  
+    left: 24px; /* Position on the left side */  
+    background: rgba(255, 255, 255, 0.15);  
+    backdrop-filter: blur(10px);  
+    -webkit-backdrop-filter: blur(10px);  
+    border: 1px solid rgba(255, 255, 255, 0.2);  
+    width: 48px;  
+    height: 48px;  
+    border-radius: 50%;  
+    display: flex;  
+    align-items: center;  
+    justify-content: center;  
+    cursor: pointer;  
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);  
+    z-index: 10;  
+}  
+  
+.color-picker-toggle:hover {  
+    background: rgba(255, 255, 255, 0.25);  
+    transform: scale(1.1) rotate(10deg);  
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);  
+}  
+  
+.color-picker-toggle i {  
+    color: white;  
+    font-size: 1.25rem;  
+}  
+.color-picker-overlay {  
+    position: fixed;  
+    top: 0;  
+    left: 0;  
+    width: 100%;  
+    height: 100%;  
+    background: rgba(0, 0, 0, 0.5);  
+    backdrop-filter: blur(4px);  
+    -webkit-backdrop-filter: blur(4px);  
+    z-index: 99;  
+    opacity: 0;  
+    visibility: hidden;  
+    transition: all 0.3s ease;  
+}  
+  
+.color-picker-overlay.active {  
+    opacity: 1;  
+    visibility: visible;  
+}  
+    </style>
+</head>
+<body>
+
+    <div class="dashboard">
+        <div class="header">
+            <button class="color-picker-toggle" id="colorPickerToggle">
+  <i class="fas fa-palette"></i>
+</button>
+              <button class="dark-mode-toggle" id="darkModeToggle">
+  <i class="fas fa-moon"></i>
+</button>
+
+            <h1><b>ENGINEERING MATERIALS </B></h1>
+           
+        </div>
+      
+
+        <div class="nav-tabs">
+            <button class="nav-tab active" data-tab="physics">Physics</button>
+            <button class="nav-tab" data-tab="chemistry">Chemistry</button>
+            <button class="nav-tab" data-tab="mathematics">Mathematics</button>
+            <button class="nav-tab" data-tab="english">English</button>
+             <button class="nav-tab" data-tab="questionpapers">Question Papers</button>
+            <button class="nav-tab" data-tab="bookmarks">Bookmarks <i class="fas fa-bookmark"></i></button>
+            
+
+        </div>
+
+        <div class="content">
+           <div class="search-bar">
+    <input type="text" class="search-input" placeholder="Search across all subjects or current tab..." id="searchInput">
+    <div class="search-controls">
+        <button class="search-mode-toggle" id="searchModeToggle">Search</button>
+        <span class="search-icon"></span>
+    </div>
+</div>
+
+            <!-- Physics Tab -->
+         <div id="physics" class="tab-panel active">
+<div class="subject-grid" id="physicsGrid">
+    <DIV class="subject-card" data-keywords="youtube video lectures">
+        <button class="bookmark-btn" data-keywords="youtube video lectures"><i class="fas fa-bookmark"></i></button>
+            <h3>YouTube</h3>
+            <div class="resource-section">
+                  <h4>CHANNELS</h4>
+                  <div class="resource-links">
+                        <a href="https://www.youtube.com/@aparsclassroom#" target="_blank" class="resource-link">aparsclassroom</a>
+                       
+                        <a href="https://www.youtube.com/@maharab182" target="_blank" class="resource-link">PCM EXPLAINED</a>
+                          <a href="https://www.youtube.com/@apurbophysics" target="_blank" class="resource-link">APURBO PHYSICS</a>
+                        <a href="https://www.youtube.com/@Hemel_Bhai" target="_blank" class="resource-link">HEMELBHAI</a>
+                        <a href="https://www.youtube.com/@ChinmoysPhysicsSolutions" target="_blank" class="resource-link">CHINMOY</a>
+                         <a href="https://www.youtube.com/@PhysicsWallah" target="_blank" class="resource-link">Physics WALLAH</a>
+                        <a href="https://www.youtube.com/@Unacademy" target="_blank" class="resource-link">Unacademy</a>
+
+
+
+                  </div>
+            </div>
+</div>
+      <div class="subject-card" data-keywords="vector mechanics force">
+        <button class="bookmark-btn" data-keywords="vector mechanics force"><i class="fas fa-bookmark"></i></button>
+            <h3>Vector</h3>
+            <div class="resource-section">
+                  <h4>Practice Sheet</h4>
+                  <div class="resource-links">
+                        <a href="https://drive.google.com/file/d/1MQDMzY9y5eaK_Ii4IuiEHgN04qtrtVXb/view?usp=drivesdk" target="_blank" class="resource-link">Vector Practice Practice</a>
+                  </div>
+            </div>
+            <div class="resource-section">
+                  <h4>ACS  LECTURE SLIDES</h4>
+                  <div class="resource-links">
+                                                  <a href="https://drive.google.com/file/d/1VipbbemJ0fIbaOIWyfdD6gAjxcOOHiKN/view?usp=drivesdk" class="resource-link" target="_blank">LECTURE 1 </a>
+                                                      <a href="https://drive.google.com/file/d/1xXd9S1be79WSYQKZEjqnXr1w5PIjJV51/view?usp=drivesdk" class="resource-link" target="_blank">LECTURE 2 </a>
+
+                        <a href="https://drive.google.com/file/d/1nQa6ISmOMlYli2GJbEjbwXfEcuYteKy6/view?usp=drivesdk" class="resource-link" target="_blank">LECTURE 3 </a>
+                                                      <a href="https://drive.google.com/file/d/1_-r8tMZfnNeI1aO0stEMbRlUD3F7JTOZ/view?usp=drivesdk" class="resource-link" target="_blank">LECTURE 4 </a>
+
+                        <a href="https://drive.google.com/file/d/1ZnOLVoVTW-VsAbEPk87g0psWR2QIeSJs/view?usp=drivesdk" class="resource-link" target="_blank">LECTURE 5 </a>
+                    
+                  </div>
+            </div>
+            
+      </div>
+
+      <div class="subject-card" data-keywords="mechanics newton motion force">
+        <button class="bookmark-btn" data-keywords="mechanics newton motion force"><i class="fas fa-bookmark"></i></button>
+            <h3>Mechanics</h3>
+            <div class="resource-section">
+                  <h4>Practice Sheet</h4>
+                  <div class="resource-links">
+                        <a href="https://drive.google.com/file/d/1SN6PvfGeeXqDYnK30NzIG3ThVoUDHfe1/view?usp=drivesdk" target="_blank" class="resource-link">Newtonian Mechanics Practice</a>
+                  </div>
+            </div>
+            <div class="resource-section">
+                  <h4>ACS  LECTURE SLIDES</h4>
+                  <div class="resource-links">
+                    <a href="https://drive.google.com/file/d/1uCRUINUZ4hBTGDqzbpzee_9KQyvjoz0V/view?usp=drivesdk" class="resource-link" target="_blank">    LECTURE 1 </a>
+                    <a href="https://drive.google.com/file/d/1WX67p9uBVNg8JiUqdnpiDc22rP6S6iYK/view?usp=drivesdk" class="resource-link" target="_blank">    LECTURE 2 </a>
+                    <a href="https://drive.google.com/file/d/1VxziBL9Eq2t8mUDrrOgHAYA0FZTZz5Xa/view?usp=drivesdk" class="resource-link" target="_blank">    LECTURE 3 </a>
+                    <a href="https://drive.google.com/file/d/1fBPzOHZqJTlf0zihfU_UGoQ2JKF9k1vQ/view?usp=drivesdk" class="resource-link" target="_blank">    LECTURE 4 </a>
+                    <a href="https://drive.google.com/file/d/1Kk-4125D2e8ELBd656ujFJ_uB3YL0yGP/view?usp=drivesdk" class="resource-link" target="_blank">    LECTURE 5 </a>
+                    <a href="https://drive.google.com/file/d/16cXrEkSWRALSKm34jVcokj7FvWyxRF7M/view?usp=drivesdk" class="resource-link" target="_blank">    LECTURE 6 </a>
+                  </div>
+            </div>
+      </div>
+
+      <div class="subject-card" data-keywords="work power energy kinetic potential">
+        <button class="bookmark-btn" data-keywords="work power energy kinetic potential"><i class="fas fa-bookmark"></i></button>
+            <h3>Work, Power & Energy</h3>
+            <div class="resource-section">
+                  <h4>Practice Sheet</h4>
+                  <div class="resource-links">
+                       <a href="https://drive.google.com/file/d/1c5PF5B-nihlmNoXNaqy770i8HFWRUX-V/view?usp=drivesdk" target="_blank" class="resource-link">WEP Practice Practice</a>
+                  </div>
+            </div>
+            <div class="resource-section">
+                  <h4>ACS  LECTURE SLIDES</h4>
+                  <div class="resource-links">
+                    <a href="https://drive.google.com/file/d/1bwygU34VwbV-0hwHtsZ--LJ2JdPY7z_X/view?usp=drivesdk" class="resource-link" target="_blank">   LECTURE 01 </a>
+                    <a href="https://drive.google.com/file/d/1c_I6-i9nFWnk-KG-XrR_EbPjtnfBGdf1/view?usp=drivesdk" class="resource-link" target="_blank">   LECTURE 02 </a>
+                    <a href="https://drive.google.com/file/d/1JgUF7AWPHW-P1eJJCcQwzxIq1GBPLGWY/view?usp=drivesdk" class="resource-link" target="_blank">   LECTURE 03 </a>
+                  </div>
+            </div>
+      </div>
+
+      <div class="subject-card" data-keywords="gravitation gravity planetary motion">
+        <button class="bookmark-btn" data-keywords="gravitation gravity planetary motion"><i class="fas fa-bookmark"></i></button>
+            <h3>Gravitation</h3>
+            <div class="resource-section">
+                  <h4>Practice Sheet</h4>
+                  <div class="resource-links">
+                        <a href="https://drive.google.com/file/d/13OxNSWGHMAMqQK6TKyUgEmgGoAO8e7_D/view?usp=drivesdk" target="_blank" class="resource-link">Gravity Practice Practice</a>
+                  </div>
+            </div>
+            <div class="resource-section">
+                 <h4>ACS  LECTURE SLIDES</h4>
+                  <div class="resource-links">
+                        <a href="https://drive.google.com/file/d/1Yv_dKKK9yYgLFloBW0SQCjWzHhwS9IeI/view?usp=drivesdk" class="resource-link" target="_blank">LECTURE 1 </a>
+                        <a href="https://drive.google.com/file/d/1PgOExLDkGZXX-MAeNV3EQwTuRybub3v7/view?usp=drivesdk" class="resource-link" target="_blank">LECTURE 2 </a>
+                        <a href="https://drive.google.com/file/d/1B94RcXM0DfD1pKx514eZkdkqc2pvvpKg/view?usp=drivesdk" class="resource-link" target="_blank">LECTURE 3 </a>
+
+                  </div>
+            </div>
+      </div>
+
+      <div class="subject-card" data-keywords="elasticity stress strain young modulus">
+        <button class="bookmark-btn" data-keywords="elasticity stress strain young modulus"><i class="fas fa-bookmark"></i></button>
+            <h3>Elasticity</h3>
+            <div class="resource-section">
+                  <h4>Practice Sheet</h4>
+                  <div class="resource-links">
+                        <a href="https://drive.google.com/file/d/1p7FN-wZ3BADfCNQbc_c3-EUBQ1JvzaeL/view?usp=drivesdk" target="_blank" class="resource-link">Structural Properties Practice</a>
+                  </div>
+            </div>
+            <div class="resource-section">
+                  <h4>ACS  LECTURE SLIDES</h4>
+                  <div class="resource-links">
+                        <a href="https://drive.google.com/file/d/1FT4mOhnSdG7XlD9HddUVO9orxg_KiN8u/view?usp=drivesdk" class="resource-link" target="_blank">LECTURE 1 </a>
+                        <a href="https://drive.google.com/file/d/1qn1ATvJ8ueNg1obWx82wSpoEdpOxwLeQ/view?usp=drivesdk" class="resource-link" target="_blank">LECTURE 2 </a>
+
+                  </div>
+            </div>
+      </div>
+
+      <div class="subject-card" data-keywords="periodic motion oscillation pendulum shm">
+        <button class="bookmark-btn" data-keywords="periodic motion oscillation pendulum shm"><i class="fas fa-bookmark"></i></button>
+            <h3>Periodic Motion</h3>
+            <div class="resource-section">
+                  <h4>Practice Sheet</h4>
+                  <div class="resource-links">
+                        <a href="https://drive.google.com/file/d/12y2xLmMSLeLatlkIdWdPqtYqr7sfYrpI/view?usp=drivesdk" target="_blank" class="resource-link">Periodic Motion Practice</a>
+                  </div>
+            </div>
+            <div class="resource-section">
+                  <h4>ACS  LECTURE SLIDES</h4>
+                  <div class="resource-links">
+                        <a href="https://drive.google.com/file/d/16gF8jGkgmYK6fGnloxXD_bgSecl5fRgA/view?usp=drivesdk" class="resource-link" target="_blank"> LECTURE 1 </a>
+                        <a href="https://drive.google.com/file/d/1J1W5h97kJ1zdFQ_nc5KzndqrBInw_pID/view?usp=drivesdk" class="resource-link" target="_blank"> LECTURE 2 </a>
+                     <a href="https://drive.google.com/file/d/1P6mz7QLNtoz7DWbw_gaenb_elMGoOIA5/view?usp=drivesdk" class="resource-link" target="_blank"> LECTURE 3 </a>
+
+                  </div>
+            </div>
+      </div>
+
+      <div class="subject-card" data-keywords="ideal gas kinetic theory pressure temperature">
+        <button class="bookmark-btn" data-keywords="ideal gas kinetic theory pressure temperature"><i class="fas fa-bookmark"></i></button>
+            <h3>Ideal Gases</h3>
+            <div class="resource-section">
+                  <h4>Practice Sheet</h4>
+                  <div class="resource-links">
+                        <a href="https://drive.google.com/file/d/1JHckKNPWpLZiHFZFbo-Dkt3o6dGF5L4Z/view?usp=drivesdk" target="_blank" class="resource-link">Ideal Gas Theory Practice</a>
+                  </div>
+            </div>
+            <div class="resource-section">
+                  <h4>ACS  LECTURE SLIDES</h4>
+                  <div class="resource-links">
+                        <a href="https://drive.google.com/file/d/1WYjB1ucDLzzJqXyHtw3u-gB0cYfJLBC7/view?usp=drivesdk" class="resource-link" target="_blank"> LECTURE  1 </a>
+                        <a href="https://drive.google.com/file/d/1N_sRqgPsa4sjJHOAd1OjMVXJmt-4dSS3/view?usp=drivesdk" class="resource-link" target="_blank"> LECTURE 2 </a>
+                     <a href="https://drive.google.com/file/d/14fTOGKDJ5Qsrljwp0bA_pR5OfQqrr0tc/view?usp=drivesdk" class="resource-link" target="_blank"> LECTURE 3 </a>
+
+                  </div>
+            </div>
+      </div>
+
+      <div class="subject-card" data-keywords="thermodynamics heat temperature entropy">
+        <button class="bookmark-btn" data-keywords="thermodynamics heat temperature entropy"><i class="fas fa-bookmark"></i></button>
+            <h3>Thermodynamics</h3>
+            <div class="resource-section">
+                  <h4>Practice Sheet</h4>
+                  <div class="resource-links">
+                        <a href="https://drive.google.com/file/d/1yPiTQoSJJOaYw8LPcLE5NUm3LhokE2T5/view?usp=drivesdk" target="_blank" class="resource-link">Thermodynamics Practice</a>
+                  </div>
+            </div>
+            <div class="resource-section">
+                  <h4>ACS  LECTURE SLIDES</h4>
+                  <div class="resource-links">
+                        <a href="https://drive.google.com/file/d/1BlkOslbGe9mmj2xb5_vYqwLrgg5A_fAu/view?usp=drivesdk" class="resource-link" target="_blank"> LECTURE 1 </a>
+                        <a href="https://drive.google.com/file/d/1p0g5QimbWB8_dyN2v6IMxclLIEvZlahu/view?usp=drivesdk" class="resource-link" target="_blank"> LECTURE 2 </a>
+                          <a href="https://drive.google.com/file/d/1zVhJ5JF0qJpaYtRiAB_K2wrrb0IDOSlw/view?usp=drivesdk" class="resource-link" target="_blank"> LECTURE 3  </a>
+                        <a href="https://drive.google.com/file/d/1J9goYl2sjXBNEnwLaxnhl4-4yMhpNno4/view?usp=drivesdk" class="resource-link" target="_blank"> LECTURE 4 </a>
+                    
+                  </div>
+            </div>
+      </div>
+
+      <div class="subject-card" data-keywords="static electricity coulomb electric field potential">
+        <button class="bookmark-btn" data-keywords="static electricity coulomb electric field potential"><i class="fas fa-bookmark"></i></button>
+    <h3>Static Electricity</h3>
+    <div class="resource-section">
+        <h4>Practice Sheet</h4>
+        <div class="resource-links">
+            <a href="https://drive.google.com/file/d/1rRvyaT3jSsckjVTeRtR_q1uBKPypHAic/view?usp=drivesdk" target="_blank" class="resource-link">Static Electricity Practice</a>
+        </div>
+    </div>
+    <div class="resource-section">
+        <h4>ACS  LECTURE SLIDES</h4>
+        <div class="resource-links">
+            <a href="https://drive.google.com/file/d/12gxGdtd1Rpn5igegjPJp-Y459rJEduDl/view?usp=drivesdk" class="resource-link" target="_blank"> LECTURE 1 </a>
+            <a href="https://drive.google.com/file/d/1e1CP4mUvzvKbnnURUSydcM19NNGB2TYz/view?usp=drivesdk" class="resource-link" target="_blank"> LECTURE 2 </a>
+            <a href="https://drive.google.com/file/d/1YGjV2WIYdGWvJWJfk5VuD-MFKfsNHMFo/view?usp=drivesdk" class="resource-link" target="_blank"> LECTURE 3 </a>
+        </div>
+    </div>
+</div>
+
+
+      <div class="subject-card" data-keywords="current electricity ohm law resistance circuit">
+        <button class="bookmark-btn" data-keywords="current electricity ohm law resistance circuit"><i class="fas fa-bookmark"></i></button>
+            <h3>Current Electricity</h3>
+            <div class="resource-section">
+                  <h4>Practice Sheet</h4>
+                 <div class="resource-links">
+                        <a href="https://drive.google.com/file/d/1bDH2qP4xpQ1ECq3M37y6Ij1LYPIXoxLY/view?usp=drivesdk" target="_blank" class="resource-link">Current Electricity Practice</a>
+                  </div>
+            </div>
+            <div class="resource-section">
+                  <h4>ACS  LECTURE SLIDES</h4>
+                  <div class="resource-links">
+                        <a href="https://drive.google.com/file/d/1dUi5IdkcpGrdemVs1DAnHYqPZKrLTS37/view?usp=drivesdk" class="resource-link" target="_blank">LECTURE 1 </a>
+                        <a href="https://drive.google.com/file/d/1Bn1SUXZ6yVDCZ7WRj9wIAmINWwwynKk9/view?usp=drivesdk" class="resource-link" target="_blank">LECTURE 2 </a>
+                        <a href="https://drive.google.com/file/d/1RE2TDQipUlbQRGkRwu1yghb7rowanL5q/view?usp=drivesdk" class="resource-link" target="_blank">LECTURE 3  </a>
+                  </div>
+            </div>
+      </div>
+
+      <div class="subject-card" data-keywords="physical optics interference diffraction polarization">
+        <button class="bookmark-btn" data-keywords="physical optics interference diffraction polarization"><i class="fas fa-bookmark"></i></button> 
+            <h3>Physical Optics</h3>
+            <div class="resource-section">
+                  <h4>Practice Sheet</h4>
+                  <div class="resource-links">
+                        <a href="https://drive.google.com/file/d/18h9GaiEB2nBXQnSzx2XmFsbL9cXMjca1/view?usp=drivesdk" target="_blank" class="resource-link">Physical Optics Practice</a>
+                  </div>
+            </div>
+            <div class="resource-section">
+                  <h4>ACS  LECTURE SLIDES</h4>
+                  <div class="resource-links">
+                     <a href="https://drive.google.com/file/d/1sL8AlLxCJ8iT_m5Z59HRYtti6wsZ_FYg/view?usp=drivesdk" class="resource-link" target="_blank"> LECTURE 1 </a>
+                        <a href="https://drive.google.com/file/d/1GeNZHnGgdDptO4oaahUs734PQVVrJf4o/view?usp=drivesdk" class="resource-link" target="_blank"> LECTURE 2 </a>
+                         <a href="https://drive.google.com/file/d/1jFF9SRxOYh-iuUqabz-HKtqxlEYFFlge/view?usp=drivesdk" class="resource-link" target="_blank"> LECTURE 3 </a>
+
+                     
+                  </div>
+            </div>
+      </div>
+
+      <div class="subject-card" data-keywords="modern physics quantum relativity photoelectric">
+        <button class="bookmark-btn" data-keywords="modern physics quantum relativity photoelectric"><i class="fas fa-bookmark"></i></button>
+            <h3>Modern Physics</h3>
+            <div class="resource-section">
+                  <h4>Practice Sheet</h4>
+                  <div class="resource-links">
+                        <a href="https://drive.google.com/file/d/1xkxX4m400WUzRHiWjoJkeLsBQ2iGa4Yb/view?usp=drivesdk" target="_blank" class="resource-link">Modern Physics Practice</a>
+                  </div>
+            </div>
+            <div class="resource-section">
+                  <h4>ACS  LECTURE SLIDES</h4>
+                  <div class="resource-links">
+                        <a href="https://drive.google.com/file/d/1IQdt5vIj9Ogv3UEL9yfqz1Npxh0Hr_9o/view?usp=drivesdk" class="resource-link" target="_blank"> LECTURE 1 </a>
+                        <a href="https://drive.google.com/file/d/1Fy5Hi3QPpbMpASXrs7yklj6EV5J5cqzx/view?usp=drivesdk" class="resource-link" target="_blank"> LECTURE 2 </a>
+                        <a href="https://drive.google.com/file/d/1f_e3oKBD5zu0hpAJs3TWN3gVqtLlxFDd/view?usp=drivesdk" class="resource-link" target="_blank"> LECTURE 3 </a>
+                  </div>
+            </div>
+      </div>
+
+      <div class="subject-card" data-keywords="nuclear physics radioactivity decay fission fusion">
+        <button class="bookmark-btn" data-keywords="nuclear physics radioactivity decay fission fusion"><i class="fas fa-bookmark"></i></button>
+            <h3>Nuclear Physics</h3>
+            <div class="resource-section">
+                  <h4>Practice Sheet</h4>
+                  <div class="resource-links">
+                        <a href="https://drive.google.com/file/d/1XChV5JlZFiBuat3bLX6ZVvECmIJEGRU9/view?usp=drivesdk" target="_blank" class="resource-link">Nuclear Physics Practice</a>
+                  </div>
+            </div>
+            <div class="resource-section">
+                  <h4>ACS  LECTURE SLIDES</h4>
+                  <div class="resource-links">
+                        <a href="https://drive.google.com/file/d/1VtEsfEbXMcP8Osqh41tutj8YnqV4Ld8C/view?usp=drivesdk" class="resource-link" target="_blank"> LECTURE  1 </a>
+                        <a href="https://drive.google.com/file/d/1Bpg-PXJ2MAnEigbI1KSOea8vvdoiJ2Hr/view?usp=drivesdk" class="resource-link" target="_blank"> LECTURE  2 </a>
+                  </div>
+            </div>
+      </div>
+
+      <div class="subject-card" data-keywords="semiconductor diode transistor electronics">
+        <button class="bookmark-btn" data-keywords="semiconductor diode transistor electronics"><i class="fas fa-bookmark"></i></button>
+            <h3>Semiconductor</h3>
+            <div class="resource-section">
+                  <h4>Practice Sheet</h4>
+                  <div class="resource-links">
+                        <a href="https://drive.google.com/file/d/13Hlau17bh4JsdyvTwlwTJN60Tuo15R-P/view?usp=drivesdk" target="_blank" class="resource-link">Semiconductor Practice</a>
+                  </div>
+            </div>
+            <div class="resource-section">
+                  <h4>ACS  LECTURE SLIDES</h4>
+                  <div class="resource-links">
+                  
+                        <a href="https://drive.google.com/file/d/1DB3R_FMQieK8LE4SDdY37-0nnmeJ8mcE/view?usp=drivesdk" class="resource-link" target="_blank">  LECTURE 01  </a>
+                              <a href="https://drive.google.com/file/d/1SgVylxERh8mpBX4jKFLPUwYXfACSnJKv/view?usp=drivesdk" class="resource-link" target="_blank">  LECTURE 02 </a>
+                  </div>
+            </div>
+      </div>
+      
+</div>
+</div>
+            <!-- Chemistry Tab -->
+         <div id="chemistry" class="tab-panel">
+<div class="subject-grid" id="chemistryGrid">
+     <DIV class="subject-card" data-keywords="youtube video lectures">
+        <button class="bookmark-btn" data-keywords="youtube video lectures"><i class="fas fa-bookmark"></i></button>
+            <h3>YouTube</h3>
+            <div class="resource-section">
+                  <h4>CHANNELS</h4>
+                  <div class="resource-links">
+  <a href="https://www.youtube.com/@wbreslyn" target="_blank" class="resource-link">wbreslyn</a>
+  <a href="https://www.youtube.com/@ChemShifu" target="_blank" class="resource-link">CHEMSHIFU</a>
+  <a href="https://www.youtube.com/@Hemel_Bhai" target="_blank" class="resource-link">HEMEL</a>
+  <a href="https://www.youtube.com/@MdNazmussakib81" target="_blank" class="resource-link">NAZMUS SAKIB</a>
+      <a href="https://www.youtube.com/@alchemy149" target="_blank" class="resource-link">ALCHEMY</a>
+      <a href="https://www.youtube.com/@Unacademy" target="_blank" class="resource-link">Unacademy</a>
+      <a href="https://www.youtube.com/@PhysicsWallah" target="_blank" class="resource-link">Physics WALLAH</a>
+</div>
+            </div>
+</div>
+
+      <!-- Qualitative Chemistry -->
+      <div class="subject-card" data-keywords="qualitative analysis salt identification">
+        <button class="bookmark-btn" data-keywords="qualitative analysis salt identification"><i class="fas fa-bookmark"></i></button>
+            <h3>Qualitative Chemistry</h3>
+            <div class="resource-section">
+                  <h4>Practice Sheet</h4>
+                  <div class="resource-links">
+                        <a href="https://drive.google.com/file/d/1o0-yP0WukKQ7rsGgL3kVGIsq0AZYHBan/view?usp=drivesdk" target="_blank" class="resource-link">Qualitative Chemistry Practice</a>
+                  </div>
+            </div>
+            <div class="resource-section">
+                  <h4>UDVASH  LECTURE SLIDES</h4>
+                  <div class="resource-links">
+                        <a href="https://drive.google.com/file/d/1Knk1pWU1DvhNeaJ-oib-gupCWtDtxBJF/view?usp=drivesdk" class="resource-link" target="_blank"> LECTURE 1 </a>
+                        <a href="https://drive.google.com/file/d/1_Co-UW-IayzA3o8GQOpHtMQ2yHDYrE1l/view?usp=drivesdk" class="resource-link" target="_blank"> LECTURE 2 </a>
+                  </div>
+            </div>
+      </div>
+
+      <!-- Stoichiometric Chemistry -->
+      <div class="subject-card" data-keywords="stoichiometric chemistry mole calculation">
+        <button class="bookmark-btn" data-keywords="stoichiometric chemistry mole calculation"><i class="fas fa-bookmark"></i></button>
+            <h3>Stoichiometric Chemistry</h3>
+            <div class="resource-section">
+                  <h4>Practice Sheet</h4>
+                  <div class="resource-links">
+                        <a href="https://drive.google.com/file/d/1i0_Q5lHqr6mqJzFvsTVoKyMJRKPc_Qmx/view?usp=drivesdk" target="_blank" class="resource-link">Stoichiometric Chemistry Practice</a>
+                  </div>
+            </div>
+            <div class="resource-section">
+                  <h4>UDVASH  LECTURE SLIDES</h4>
+                  <div class="resource-links">
+                        <a href="https://drive.google.com/file/d/1T5lKa7yq2j0T2kZBJL-u59y-XNvFMZnm/view?usp=drivesdk" class="resource-link" target="_blank"> LECTURE 1 </a>
+                        <a href="https://drive.google.com/file/d/1-YY65Bnqhaifexa09d7k03IGrg7CtlgQ/view?usp=drivesdk" class="resource-link" target="_blank"> LECTURE 2 </a>
+                  </div>
+            </div>
+      </div>
+
+      <!-- Electrochemistry -->
+      <div class="subject-card" data-keywords="electrochemistry galvanic cell electrolysis">
+        <button class="bookmark-btn" data-keywords="electrochemistry galvanic cell electrolysis"><i class="fas fa-bookmark"></i></button>
+            <h3>Electrochemistry</h3>
+            <div class="resource-section">
+                  <h4>Practice Sheet</h4>
+                  <div class="resource-links">
+                        <a href="https://drive.google.com/file/d/11GD-UbonrinW_r36j49dXp5SJ7iYfOTl/view?usp=drivesdk" target="_blank" class="resource-link">Electrochemistry Practice</a>
+                  </div>
+            </div>
+            <div class="resource-section">
+                  <h4>UDVASH  LECTURE SLIDES</h4>
+                  <div class="resource-links">
+                        <a href="https://drive.google.com/file/d/1SVaLmeztH6J0s0ZaS3MyOqCwiqYyYrpX/view?usp=drivesdk" class="resource-link" target="_blank"> LECTURE 1 </a>
+                        <a href="https://drive.google.com/file/d/17Ptd5JVxUbGLMHIec_TVfGx9cb339kOW/view?usp=drivesdk" class="resource-link" target="_blank"> LECTURE 2 </a>
+                  </div>
+            </div>
+      </div>
+
+      <!-- Periodic Properties -->
+      <div class="subject-card" data-keywords="periodic properties elements atomic radius ionization">
+        <button class="bookmark-btn" data-keywords="periodic properties elements atomic radius ionization"><i class="fas fa-bookmark"></i></button>
+            <h3>Periodic Properties of Elements</h3>
+            <div class="resource-section">
+                  <h4>Practice Sheet</h4>
+                  <div class="resource-links">
+                        <a href="https://drive.google.com/file/d/1pB7xEKWaXk3v2WrPARNFduCZWytNPgLp/view?usp=drivesdk" target="_blank" class="resource-link">Periodic Properties Practice</a>
+                  </div>
+            </div>
+            <div class="resource-section">
+                  <h4>UDVASH  LECTURE SLIDES</h4>
+                  <div class="resource-links">
+                        <a href="https://drive.google.com/file/d/1rxyZlVUveJ0jbbGMe_Lwt9C9MFaN50aY/view?usp=drivesdk" class="resource-link" target="_blank"> LECTURE 1 </a>
+                        <a href="https://drive.google.com/file/d/1K0yprCHK-S3-NYsyutpFkdkLXMe6_4gz/view?usp=drivesdk" class="resource-link" target="_blank"> LECTURE 2 </a>
+                        <a href="https://drive.google.com/file/d/1nXJ2QL-EAuQcXmp1kKjZe5u244RaFyK3/view?usp=drivesdk" class="resource-link" target="_blank"> LECTURE 3 </a>
+                        <a href="https://drive.google.com/file/d/1MF_l7M6GZD1zOMrZqcSGJ3jqZfMQovMW/view?usp=drivesdk" class="resource-link" target="_blank"> LECTURE 4 </a>
+                  </div>
+            </div>
+      </div>
+
+      
+ <!-- Chemical Changes -->
+<div class="subject-card" data-keywords="chemical changes reaction kinetics equilibrium">
+    <button class="bookmark-btn" data-keywords="chemical changes reaction kinetics equilibrium"><i class="fas fa-bookmark"></i></button>
+    <h3>Chemical Changes</h3>
+    <div class="resource-section">
+        <h4>Practice Sheet</h4>
+        <div class="resource-links">
+            <a href="https://drive.google.com/file/d/1IptfI4N1J5niSYG09YIY9tzaQD_vrl3X/view?usp=drivesdk" target="_blank" class="resource-link">Chemical Changes Practice</a>
+        </div>
+    </div>
+    <div class="resource-section">
+        <h4>UDVASH  LECTURE SLIDES</h4>
+        <div class="resource-links">
+            <a href="https://drive.google.com/file/d/1UDCK_hmw9hJ5wM-bLf1o0WqVK9rqvZ3A/view?usp=drivesdk" class="resource-link" target="_blank">LECTURE 1 </a>
+            <a href="https://drive.google.com/file/d/1yzig6cn-nbcQRvKsqgMbg29SMMKnCBGY/view?usp=drivesdk" class="resource-link" target="_blank">LECTURE 2 </a>
+        </div>
+    </div>
+</div>
+
+<!-- Vocational Chemistry -->
+<div class="subject-card" data-keywords="vocational chemistry industrial application">
+    <button class="bookmark-btn" data-keywords="vocational chemistry industrial application"><i class="fas fa-bookmark"></i></button>
+    <h3>Vocational Chemistry</h3>
+    <div class="resource-section">
+        <h4>Practice Sheet</h4>
+        <div class="resource-links">
+            <a href="https://drive.google.com/file/d/1aNL9HX8IoNv9gtf0Q8zxCokNCl7N4oEs/view?usp=drivesdk" target="_blank" class="resource-link">Vocational Chemistry Practice</a>
+        </div>
+    </div>
+    <div class="resource-section">
+        <h4>UDVASH  LECTURE SLIDES</h4>
+        <div class="resource-links">
+            <a href="https://drive.google.com/file/d/1tgBVAYOVypn519apdieMOR-V-5pccN55/view?usp=drivesdk" class="resource-link" target="_blank">KORMOMUKHI </a>
+        </div>
+    </div>
+</div>
+
+<!-- Environmental Chemistry -->
+<div class="subject-card" data-keywords="environmental chemistry pollution green">
+    <button class="bookmark-btn" data-keywords="environmental chemistry pollution green"><i class="fas fa-bookmark"></i></button>
+    <h3>Environmental Chemistry</h3>
+    <div class="resource-section">
+        <h4>Practice Sheet</h4>
+        <div class="resource-links">
+            <a href="https://drive.google.com/file/d/1qGy8sVKgKFaOfI65T16IMAzBJIsFq0cR/view?usp=drivesdk" target="_blank" class="resource-link">Environmental Chemistry Practice</a>
+        </div>
+    </div>
+    <div class="resource-section">
+        <h4>UDVASH  LECTURE SLIDES</h4>
+        <div class="resource-links">
+            <a href="https://drive.google.com/file/d/1_RxY-_to8udE-hipZKjNCTEuAHjosgp5/view?usp=drivesdk" class="resource-link" target="_blank">LECTURE 1 </a>
+            <a href="https://drive.google.com/file/d/1ufvnyzYkkmyYnO137vBFKuS9SiVZid6W/view?usp=drivesdk" class="resource-link" target="_blank">LECTURE 2 </a>
+        </div>
+    </div>
+</div>
+
+<!-- Organic Chemistry -->
+<div class="subject-card" data-keywords="organic chemistry hydrocarbon functional groups">
+    <button class="bookmark-btn" data-keywords="organic chemistry hydrocarbon functional groups"><i class="fas fa-bookmark"></i></button>
+    <h3>Organic Chemistry</h3>
+    <div class="resource-section">
+        <h4>Practice Sheet</h4>
+        <div class="resource-links">
+            <a href="https://drive.google.com/file/d/1jh8cRQzoCc6KBJiqcGZ5Jp0OU9AxOBXl/view?usp=drivesdk" target="_blank" class="resource-link">Organic Chemistry Practice</a>
+        </div>
+    </div>
+    <div class="resource-section">
+        <h4>UDVASH  LECTURE SLIDES</h4>
+        <div class="resource-links">
+            <a href="https://drive.google.com/file/d/1sZsJ4j06Vu_SX_I-g_c_jA28_PAVGmYp/view?usp=drivesdk" class="resource-link" target="_blank">LECTURE 1</a>
+            <a href="https://drive.google.com/file/d/1wYaXXKHbEM4HHobGpZDAHWD0G1pldEGo/view?usp=drivesdk" class="resource-link" target="_blank">LECTURE 2</a>
+            <a href="https://drive.google.com/file/d/1CYV6qnZa7ou0tmI9jxZpyfQwf_KkBYP9/view?usp=drivesdk" class="resource-link" target="_blank">LECTURE 3</a>
+            <a href="https://drive.google.com/file/d/1zZEHgbbPsIq8g4Lv-VxIBRcnUyfXVtB2/view?usp=drivesdk" class="resource-link" target="_blank">LECTURE 4</a>
+            <a href="https://drive.google.com/file/d/1fwa-NvaunN032v_8IUIBOvB9KvveoI36/view?usp=drivesdk" class="resource-link" target="_blank">LECTURE 5</a>
+            <a href="https://drive.google.com/file/d/1q-VLqVJsgwWgfvcgkdPMvL3ejnQ9WFGq/view?usp=drivesdk" class="resource-link" target="_blank">LECTURE 6</a>
+            <a href="https://drive.google.com/file/d/1W4JcSQrkFKss6wuXa1X4FnlrXcmcMERo/view?usp=drivesdk" class="resource-link" target="_blank">LECTURE 7</a>
+            <a href="https://drive.google.com/file/d/1EFw0UMI4OL4ZPpikHGLBYF7ysVfhn6Eq/view?usp=drivesdk" class="resource-link" target="_blank">LECTURE 8</a>
+        </div>
+    </div>
+</div>
+
+</div>
+</div>
+
+            <!-- Mathematics Tab -->
+       <div id="mathematics" class="tab-panel">
+  <div class="subject-grid" id="mathematicsGrid">
+      <DIV class="subject-card" data-keywords="youtube video lectures">
+        <button class="bookmark-btn" data-keywords="youtube video lectures"><i class="fas fa-bookmark"></i></button>
+            <h3>YouTube</h3>
+            <div class="resource-section">
+                  <h4>CHANNELS</h4>
+                  <div class="resource-links">
+                        <a href="https://www.youtube.com/@AbhiDattaTushar156" target="_blank" class="resource-link">ABHI</a>
+                        <a href="https://www.youtube.com/@MathScienceNerds" target="_blank" class="resource-link">RAKIB</a>
+                        <a href="https://www.youtube.com/@BHANNATMATHS" target="_blank" class="resource-link">B-M</a>
+                        <a href="https://www.youtube.com/@blackpenredpen" target="_blank" class="resource-link">BPRP</a>
+                         <a href="https://www.youtube.com/@PhysicsWallah" target="_blank" class="resource-link">Physics WALLAH</a>
+                        <a href="https://www.youtube.com/@Unacademy" target="_blank" class="resource-link">Unacademy</a>
+                         <a href="https://www.youtube.com/@jeesimplified" target="_blank" class="resource-link">jeesimplified</a>
+                  </div>
+            </div>
+</div>
+    <div class="subject-card" data-keywords="matrix determinant linear algebra">
+      <button class="bookmark-btn" data-keywords="matrix determinant linear algebra"><i class="fas fa-bookmark"></i></button>
+      <h3>Matrix & Determinant</h3>
+      <div class="resource-section">
+        <h4>Practice Sheet</h4>
+        <div class="resource-links">
+          <a href="https://drive.google.com/file/d/1RF_J89QkPY-bsvXa4WWAUJR9BD7-rBoC/view?usp=drivesdk" target="_blank" class="resource-link">Matrix Practice</a>
+        </div>
+      </div>
+      <div class="resource-section">
+        <h4>ACS  LECTURE SLIDES</h4>
+        <div class="resource-links">
+          <a href="https://drive.google.com/file/d/1ixsIT6K79vocaU_N46xVV8ZHNhj--uOf/view?usp=drivesdk" class="resource-link" target="_blank">LECTURE 1 </a>
+          <a href="https://drive.google.com/file/d/15NelD4VURykKJuyHc1kqvMjBjtJ77t2S/view?usp=drivesdk" class="resource-link" target="_blank">LECTURE 2 </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="subject-card" data-keywords="straight line coordinate geometry slope">
+      <button class="bookmark-btn" data-keywords="straight line coordinate geometry slope"><i class="fas fa-bookmark"></i></button>
+      <h3>Straight Lines</h3>
+      <div class="resource-section">
+        <h4>Practice Sheet</h4>
+        <div class="resource-links">
+          <a href="https://drive.google.com/file/d/1kRJ-FxCUYXrHNMd4kDhJjMvgarEpA6Xb/view?usp=drivesdk" target="_blank" class="resource-link">Straight Line Practice</a>
+        </div>
+      </div>
+      <div class="resource-section">
+        <h4>ACS  LECTURE SLIDES</h4>
+        <div class="resource-links">
+          <a href="https://drive.google.com/file/d/1SgPuqERAgAaEmyU60e13KOrsuOz68I2E/view?usp=drivesdk" class="resource-link" target="_blank">LECTURE 1 </a>
+          <a href="https://drive.google.com/file/d/15v_1y4nsxpqoDX3M8OOk48ZruNCchlkX/view?usp=drivesdk" class="resource-link" target="_blank">LECTURE 2 </a>
+          <a href="https://drive.google.com/file/d/1CqwVbdZ3jATLmVLPMUCeIviYG5pNRhfB/view?usp=drivesdk" class="resource-link" target="_blank">LECTURE 3 </a>
+          <a href="https://drive.google.com/file/d/1uB14Zam9UkmQN06i6n6Ow2itutoncOVf/view?usp=drivesdk" class="resource-link" target="_blank">LECTURE 4 </a>
+          <a href="https://drive.google.com/file/d/1g4F0HG31DDInEZeUhYqwfPC7kKQZQm/view?usp=drivesdk" class="resource-link" target="_blank">LECTURE 4(PART 2) </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="subject-card" data-keywords="circle geometry radius chord tangent">
+      <button class="bookmark-btn" data-keywords="circle geometry radius chord tangent"><i class="fas fa-bookmark"></i></button>
+      <h3>Circle</h3>
+      <div class="resource-section">
+        <h4>Practice Sheet</h4>
+        <div class="resource-links">
+          <a href="https://drive.google.com/file/d/145nxylwyPVWq6ePoipqCW6W0SEf7TsHK/view?usp=drivesdk" target="_blank" class="resource-link">Circle Practice</a>
+        </div>
+      </div>
+      <div class="resource-section">
+        <h4>ACS  LECTURE SLIDES</h4>
+        <div class="resource-links">
+          <a href="https://drive.google.com/file/d/1LJ3IkKlzJ6wZKqujQ9Op52qnwcneAc8W/view?usp=drivesdk" class="resource-link" target="_blank"> LECTURE 1</a>
+          <a href="https://drive.google.com/file/d/1qih3RM-DZT07o-08qKJTJrXngk_CKchr/view?usp=drivesdk" class="resource-link" target="_blank">LECTURE 2 </a>
+          <a href="https://drive.google.com/file/d/1uLTAyekEyYCYpgV90CTwjGdM0Y29Hd9H/view?usp=drivesdk" class="resource-link" target="_blank"> LECTURE 3 </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="subject-card" data-keywords="conics parabola ellipse hyperbola">
+      <button class="bookmark-btn" data-keywords="conics parabola ellipse hyperbola"><i class="fas fa-bookmark"></i></button>
+      <h3>Conics</h3>
+      <div class="resource-section">
+        <h4>Practice Sheet</h4>
+        <div class="resource-links">
+          <a href="https://drive.google.com/file/d/1yvWeeA6C9W1T6bThlajxGUAuIuCeK8xh/view?usp=drivesdk" target="_blank" class="resource-link">Conics Practice</a>
+        </div>
+      </div>
+      <div class="resource-section">
+        <h4>ACS  LECTURE SLIDES</h4>
+        <div class="resource-links">
+          <a href="https://drive.google.com/file/d/1hQ2ICHYffVTO0jsOBJdMT7ihOEXtM8YY/view?usp=drivesdk" class="resource-link" target="_blank"> LECTURE 1 </a>
+          <a href="https://drive.google.com/file/d/1ov8pvp14KA_ypu-iMP9DvMG1nuwZeLhh/view?usp=drivesdk" class="resource-link" target="_blank"> LECTURE 2 </a>
+          <a href="https://drive.google.com/file/d/1fATDXjrpjFXaQ3mLURhMzk_sPdcTJyp7/view?usp=drivesdk" class="resource-link" target="_blank"> LECTURE 3 </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="subject-card" data-keywords="trigonometry sine cosine tangent identities">
+      <button class="bookmark-btn" data-keywords="trigonometry sine cosine tangent identities"><i class="fas fa-bookmark"></i></button>
+      <h3>Trigonometry</h3>
+      <div class="resource-section">
+        <h4>Practice Sheet</h4>
+        <div class="resource-links">
+          <a href="https://drive.google.com/file/d/1V4WGLICJKgn2xYIYUYqgIoNROxVD8f2f/view?usp=drivesdk" target="_blank" class="resource-link">Trigonometry Practice</a>
+        </div>
+      </div>
+      <div class="resource-section">
+        <h4>ACS  LECTURE SLIDES</h4>
+        <div class="resource-links">
+          <a href="https://drive.google.com/file/d/1SaRHj2OmP8AsRPhT2tCyEntUmy-H3yQS/view?usp=drivesdk" class="resource-link" target="_blank">LECTURE 1</a>
+          <a href="https://drive.google.com/file/d/1I7hB2cDoKcjpQKZxssWmSf8s6IxNJ739/view?usp=drivesdk" class="resource-link" target="_blank"> LECTURE 2</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="subject-card" data-keywords="inverse trigonometry arcsin arccos arctan">
+      <button class="bookmark-btn" data-keywords="inverse trigonometry arcsin arccos arctan"><i class="fas fa-bookmark"></i></button>
+      <h3>Inverse Trigonometry</h3>
+      <div class="resource-section">
+        <h4>Practice Sheet</h4>
+        <div class="resource-links">
+          <a href="https://drive.google.com/file/d/12QiqAaoz2G2atD_Vo2ZhemllcV0jZ1P3/view?usp=drivesdk" target="_blank" class="resource-link">Inverse Trigonometry Practice</a>
+        </div>
+      </div>
+      <div class="resource-section">
+        <h4>ACS  LECTURE SLIDES</h4>
+        <div class="resource-links">
+          <a href="https://drive.google.com/file/d/1n8_a_UabWK7G8Ocgw_-_9bhdD9PlxZIc/view?usp=drivesdk" class="resource-link" target="_blank">LECTURE 1</a>
+          <a href="https://drive.google.com/file/d/1ixYLEYPodjM92Aip6wqCc5i4S2MWW_PC/view?usp=drivesdk" class="resource-link" target="_blank">LECTURE 2</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="subject-card" data-keywords="differentiation calculus derivative limit">
+      <button class="bookmark-btn" data-keywords="differentiation calculus derivative limit"><i class="fas fa-bookmark"></i></button>
+      <h3>Differentiation</h3>
+      <div class="resource-section">
+        <h4>Practice Sheet</h4>
+        <div class="resource-links">
+          <a href="https://drive.google.com/file/d/1dBi3av9z-8FywHxJTkGcE7VlVGVqHPVe/view?usp=drivesdk" target="_blank" class="resource-link">Differentiation Practice</a>
+        </div>
+      </div>
+      <div class="resource-section">
+        <h4>ACS  LECTURE SLIDES</h4>
+        <div class="resource-links">
+          <a href="https://drive.google.com/file/d/13Af8Iq1jtNNEqUz52wp4Wn4cYWFGZUh5/view?usp=drivesdk" class="resource-link" target="_blank">LECTURE 1</a>
+          <a href="https://drive.google.com/file/d/1ct8ciDqxImd5UACHxfTZtJ3A22DpGNUa/view?usp=drivesdk" class="resource-link" target="_blank">LECTURE 2</a>
+          <a href="https://drive.google.com/file/d/1RG7I2sQDFumBCjpMaJWT53SFEsuz1W5e/view?usp=drivesdk" class="resource-link" target="_blank">LECTURE 3</a>
+          <a href="https://drive.google.com/file/d/1a5SnonV27DhwLs9YtPaCsvzEb-mGIKYx/view?usp=drivesdk" class="resource-link" target="_blank">LECTURE 4</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="subject-card" data-keywords="integration calculus antiderivative area">
+      <button class="bookmark-btn" data-keywords="integration calculus antiderivative area"><i class="fas fa-bookmark"></i></button>
+      <h3>Integration</h3>
+      <div class="resource-section">
+        <h4>Practice Sheet</h4>
+        <div class="resource-links">
+          <a href="https://drive.google.com/file/d/1ouGB5U5Cmd4ZIVt4Q_2X8ADznJ9ufJAq/view?usp=drivesdk" target="_blank" class="resource-link">Integration Practice</a>
+        </div>
+      </div>
+      <div class="resource-section">
+        <h4>ACS  LECTURE SLIDES</h4>
+        <div class="resource-links">
+          <a href="https://drive.google.com/file/d/1aLAY-qcuxhLgF2ljL8wZBchSepPXdCKJ/view?usp=drivesdk" class="resource-link" target="_blank">LECTURE 1</a>
+          <a href="https://drive.google.com/file/d/1pLd6IldPYCi_sKJFQbtZ8XMX4dgdI0iY/view?usp=drivesdk" class="resource-link" target="_blank">LECTURE 2</a>
+          <a href="https://drive.google.com/file/d/1QnY-aKGJtxxchPO3hXFIfe1WO4XhYoHi/view?usp=drivesdk" class="resource-link" target="_blank">LECTURE 3</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="subject-card" data-keywords="complex numbers imaginary algebra polar">
+      <button class="bookmark-btn" data-keywords="complex numbers imaginary algebra polar"><i class="fas fa-bookmark"></i></button>
+      <h3>Complex Numbers</h3>
+      <div class="resource-section">
+        <h4>Practice Sheet</h4>
+        <div class="resource-links">
+          <a href="https://drive.google.com/file/d/15UuvKO6xtgrcWLkzxLL6i8zp-CRdWPvS/view?usp=drivesdk" target="_blank" class="resource-link">Complex Numbers Practice</a>
+        </div>
+      </div>
+      <div class="resource-section">
+        <h4>ACS  LECTURE SLIDES</h4>
+        <div class="resource-links">
+          <a href="https://drive.google.com/file/d/1u2HleKkhR5hN_M4oo-43_kR5VGwqqA6s/view?usp=drivesdk" class="resource-link" target="_blank"> LECTURE 1  </a>
+          <a href="https://drive.google.com/file/d/1KTXERaJUi7z-CziTDakwwPBKUXIO9gIv/view?usp=drivesdk" class="resource-link" target="_blank"> LECTURE 2 </a>
+          <a href="https://drive.google.com/file/d/1rJHbxcWjzGofQR352QZJiCDKwuZRqJS8/view?usp=drivesdk" class="resource-link" target="_blank"> LECTURE 3 </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="subject-card" data-keywords="polynomial equations roots factors quadratic">
+      <button class="bookmark-btn" data-keywords="polynomial equations roots factors quadratic"><i class="fas fa-bookmark"></i></button>
+      <h3>Polynomial Equations</h3>
+      <div class="resource-section">
+        <h4>Practice Sheet</h4>
+        <div class="resource-links">
+          <a href="https://drive.google.com/file/d/1np8suLX17APjTRjD1HLupKPgk6AKecVC/view?usp=drivesdk" target="_blank" class="resource-link">Polynomials Practice</a>
+        </div>
+      </div>
+      <div class="resource-section">
+        <h4>ACS  LECTURE SLIDES</h4>
+        <div class="resource-links">
+          <a href="https://drive.google.com/file/d/1kdlmeuMfwTTsyUaf3Hiz9W4gjLAlag9J/view?usp=drivesdk" class="resource-link" target="_blank">LECTURE 1</a>
+          <a href="https://drive.google.com/file/d/1I9copqzvONgMnnynTka4-EVTg5tPqo88/view?usp=drivesdk" class="resource-link" target="_blank">LECTURE  2</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="subject-card" data-keywords="statics equilibrium force moment">
+      <button class="bookmark-btn" data-keywords="statics equilibrium force moment"><i class="fas fa-bookmark"></i></button>
+      <h3>Statics</h3>
+      <div class="resource-section">
+        <h4>Practice Sheet</h4>
+        <div class="resource-links">
+          <a href="https://drive.google.com/file/d/1XeAC6Z6Id81laMfzHQfc6eRtFj73aA4z/view?usp=drivesdk" target="_blank" class="resource-link">Statics Practice</a>
+        </div>
+      </div>
+      <div class="resource-section">
+        <h4>ACS  LECTURE SLIDES</h4>
+        <div class="resource-links">
+          <a href="https://drive.google.com/file/d/1XNhwLd5U5pt_mMI-_gO-bRcwO2TDOUql/view?usp=drivesdk" class="resource-link" target="_blank"> LECTURE  1  </a>
+          <a href="https://drive.google.com/file/d/1UtFAJBH9_jY5PRlu-3sFx2nWWR3Kkpo-/view?usp=drivesdk" class="resource-link" target="_blank"> LECTURE  2   </a>
+          <a href="https://drive.google.com/file/d/1yLbkbxICYkCAxDsggrVq_gnVVmaL-olK/view?usp=drivesdk" class="resource-link" target="_blank"> LECTURE  3</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="subject-card" data-keywords="dynamics motion kinematics acceleration velocity">
+      <button class="bookmark-btn" data-keywords="dynamics motion kinematics acceleration velocity"><i class="fas fa-bookmark"></i></button>
+      <h3>Dynamics</h3>
+      <div class="resource-section">
+        <h4>Practice Sheet</h4>
+        <div class="resource-links">
+          <a href="https://drive.google.com/file/d/1i-yektz_mJ-R-Q_ELg7zP-Z-Fq0PcOcf/view?usp=drivesdk" target="_blank" class="resource-link">Dynamics Practice</a>
+        </div>
+      </div>
+      <div class="resource-section">
+        <h4>ACS  LECTURE SLIDES</h4>
+        <div class="resource-links">
+          <a href="https://drive.google.com/file/d/17OLYtzav9SsD3s5FFW1iqUhfaEdImLcp/view?usp=drivesdk" class="resource-link" target="_blank"> LECTURE 1 </a>
+          <a href="https://drive.google.com/file/d/15nEt8a56Vhxk4Vv7zEnmVjx_9A-Oh-JD/view?usp=drivesdk" class="resource-link" target="_blank"> LECTURE 2  </a>
+          <a href="https://drive.google.com/file/d/1S_IlgigI5YQ--Bj96z_I2gW6IfnBsOjw/view?usp=drivesdk" class="resource-link" target="_blank">LECTURE 3  </a>
+        </div>
+      </div>
+    </div>
+   
+  </div>
+</div>
+            <!-- English Tab -->
+            <div id="english" class="tab-panel">
+                <div class="english-section">
+                    <div class="english-resources">
+                       
+
+                        <div class="english-card">
+                            <h4>🌐Online Courses</h4>
+                            <ul class="english-links">
+                                <li><a href="https://online.udvash-unmesh.com/Content/DisplayContentCard?masterCourseId=41&subjectId=55&masterChapterId=2915&masterContentTypeId=9" target="_blank">UDVASH Marathon 24</a></li>
+                                <li><a href="https://engineering24.aparsclassroom.com/Bonus/Paper-0/Chapter-English" target="_blank">ACS Class 24</a></li>
+                            </ul>
+                        </div>
+
+                        <div class="english-card">
+                            <h4>📄 UDVASH  LECTURE SLIDES</h4>
+                            <ul class="english-links">
+                                <li><a href="https://drive.google.com/file/d/1rWxs61SVZ_0V-84S7m00kaj4u32gwMRN/view?usp=drivesdk" target="_blank">English  LECTURE 1</a></li>
+                                <li><a href="https://drive.google.com/file/d/1vL-XhiLuBfks04yFU6Jidu4yCm4h4vqX/view?usp=drivesdk" target="_blank">English  LECTURE 2</a></li>
+                                <li><a href="https://drive.google.com/file/d/1pFGSXmyGPLtu37cDsW3NQW_N7vxsB81E/view?usp=drivesdk" target="_blank">English  LECTURE 3</a></li>
+                                <li><a href="https://drive.google.com/file/d/18btar6kVcT2HG2ggluCE5tCr9ecBTn0B/view?usp=drivesdk" target="_blank">English  LECTURE 4</a></li>
+                            </ul>
+                        </div>
+
+                        <div class="english-card">
+                            <h4>📚 ACS  LECTURE SLIDES</h4>
+                            <ul class="english-links">
+                        <li><a href="https://drive.google.com/file/d/1tDicPihmXvoISuGtNijCGSwG1WHmPxSv/view?usp=drivesdk" target="_blank">Parts of Speech</a></li>
+                        <li><a href="https://drive.google.com/file/d/1uWBN9YUO0B1LwY2vU81kP0MvhuM-ZTg6/view?usp=drivesdk" target="_blank">Grammar Strategy</a></li>
+                        <li><a href="https://drive.google.com/file/d/1CGAiWTvazkUaevL2LsaKApIfHtMQONdw/view?usp=drivesdk" target="_blank">Sentence Patterns</a></li>
+                        <li><a href="https://drive.google.com/file/d/1YVKZsNjukPX4_u5-8pLmHcLrgL_sAG-Y/view?usp=drivesdk" target="_blank">Pronouns & Verbs</a></li>
+                        <li><a href="https://drive.google.com/file/d/1zO3uUTG30UiAfX4QRxqhZ0JFN3Z3s0nk/view?usp=drivesdk" target="_blank">Modals & Adjectives</a></li>
+                        <li><a href="https://drive.google.com/file/d/1Lfb1EmwYg4XKW8UGXUlciEdUkZdtRcVN/view?usp=drivesdk" target="_blank">Comparisons & Connectors</a></li>
+                        <li><a href="https://drive.google.com/file/d/1rTyHSW91eMj6j9QbI67-OGR0EFLFDKyy/view?usp=drivesdk" target="_blank">Conjunctions</a></li>
+                        <li><a href="https://drive.google.com/file/d/17GecIcFy76F7I15pWP01KG7JXVL1MGOA/view?usp=drivesdk" target="_blank">Voice Change, Causative Verbs, Relative Clauses, Use of That, Subjunctive</a></li>
+                        <li><a href="https://drive.google.com/file/d/1qU6PHaGmCWMzBjkgPiibtyzupGq3le4r/view?usp=drivesdk" target="_blank">Common Problems</a></li>
+                        <li><a href="https://drive.google.com/file/d/1UW_2X2ISWuGvmMvF0kK-bPDapa7mKiFD/view?usp=drivesdk" target="_blank"> Right Form of Verb,Number, Gender, Modifier, Group Verb</a></li>
+                        <li><a href="https://drive.google.com/file/d/1PaQmeaoxG4GkkVkNDYT_CQunfUp36h6R/view?usp=drivesdk" target="_blank">Narration &amp; Transformation of Sentences </a></li>
+                        <li><a href="https://drive.google.com/file/d/18oHl5Fw49_87k6uftFwnPiNwoxTH4wWp/view?usp=drivesdk" target="_blank">Error Correction</a></li>
+                        <li><a href="https://drive.google.com/file/d/1Ixx87EacRY-UmLat_vCnMTwnymA1-xSs/view?usp=drivesdk" target="_blank">Prepositions</a></li>
+                        <li><a href="https://drive.google.com/file/d/15sVIwKpmObChDYGxwL1XIcLUYHL_iwJD/view?usp=drivesdk" target="_blank">Vocabulary</a></li>
+                      </ul>
+                        </div>
+
+                        <div class="english-card">
+                            <h4>📝 Practice Sheets (CKRUET )</h4>
+                            <ul class="english-links">
+            <li class="pdf-item"><a href="https://drive.google.com/file/d/1QfjsDoNKMOrhsktleFBzwvXSXJRzWsTL/view?usp=drivesdk" class="pdf-link" target="_blank">PRACTICE  1 </a></li>
+            <li class="pdf-item"><a href="https://drive.google.com/file/d/1A0YMvIkj8xUTTJDjKJpRAhtBNeLI7bNT/view?usp=drivesdk" class="pdf-link" target="_blank">PRACTICE  2 </a></li>
+            <li class="pdf-item"><a href="https://drive.google.com/file/d/1Qlf6Cn0Va_VygHo-Be0TYRA-TF6bXyr0/view?usp=drivesdk" class="pdf-link" target="_blank">PRACTICE  3 </a></li>
+            <li class="pdf-item"><a href="https://drive.google.com/file/d/1LBCn-JEghW3Ilx5WcHUMvLqZHkAlDdeu/view?usp=drivesdk" class="pdf-link" target="_blank">PRACTICE  4 </a></li>
+            <li class="pdf-item"><a href="https://drive.google.com/file/d/1RPxBuGuH4Qa5BXI51vkXFxvNIdT5Hssr/view?usp=drivesdk" class="pdf-link" target="_blank">PRACTICE  5 </a></li>
+            <li class="pdf-item"><a href="https://drive.google.com/file/d/1b-ebfOuMYckb9iqFrK_sUu77izjuC_Gg/view?usp=drivesdk" class="pdf-link" target="_blank">PRACTICE  6 </a></li>
+            <li class="pdf-item"><a href="https://drive.google.com/file/d/11Mutu0-sjSjPFg2ZvPl2RrA9IeTY_E1a/view?usp=drivesdk" class="pdf-link" target="_blank">PRACTICE  7 </a></li>
+            <li class="pdf-item"><a href="https://drive.google.com/file/d/1HY3H0CP7z5HQv6S1tXVXbRylVHQ1_xQe/view?usp=drivesdk" class="pdf-link" target="_blank">PRACTICE  8 </a></li>
+            <li class="pdf-item"><a href="https://drive.google.com/file/d/1iI-lUaxhD9_S5zb-IWdqwlnG4o6gfX6L/view?usp=drivesdk" class="pdf-link" target="_blank">PRACTICE  9 </a></li>
+            <li class="pdf-item"><a href="https://drive.google.com/file/d/1fP_oiTQMG0X6Nnr5alW1gwYZd1rkYelA/view?usp=drivesdk" class="pdf-link" target="_blank">PRACTICE  10 </a></li>
+            <li class="pdf-item"><a href="https://drive.google.com/file/d/1Ds4GY-qRu71QFbo8AG2KkJXk3PDC_Aup/view?usp=drivesdk" class="pdf-link" target="_blank">PRACTICE  11 </a></li>
+            <li class="pdf-item"><a href="https://drive.google.com/file/d/1WNAQvQljGQdPoCoixXRnN7Vf_B7M4vC0/view?usp=drivesdk" class="pdf-link" target="_blank">PRACTICE  12 </a></li>
+      </ul>
+                        </div>
+                         <div class="english-card">
+                            <h4>📺 YouTube Resources</h4>
+                            <ul class="english-links">
+                                <li><a href="https://youtube.com/playlist?list=PLmxbJJ4vBJsbOrh35UbXoTwkzvZN8LN6L&si=fFaaeRcHAwaHuSmd" target="_blank">10 MS Playlist</a></li>
+                                <li><a href="https://youtube.com/playlist?list=PLFlznAZ19jmEZxFdRSpJVwX5KI1lqm1nP&si=oHDlwAQJybLgQBrA" target="_blank">SH JAY Playlist</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="questionpapers" class="tab-panel">
+    <div class="subject-grid" id="questionpapersGrid">
+        
+        <!-- Udvash Card -->
+        <div class="subject-card" data-keywords="udvash question paper past exam pcm buet ruet cuet kuet">
+            <h3>Udvash</h3>
+            
+            <div class="resource-section">
+                <h4>PCM</h4>
+                <div class="resource-links">
+                    <a href="https://drive.google.com/file/d/17lyQ4uDnXNT2Kgt4uvX2vZF-NMnip8gN/view?usp=drivesdk" target="_blank" class="resource-link">DAILY EXAM</a>
+                    <a href="https://drive.google.com/file/d/19sGIcH8XtCQv_dVWaicjUi_xlDX-CkKT/view?usp=drivesdk" target="_blank" class="resource-link">WEEKLY EXAM</a>
+                    <a href="https://drive.google.com/file/d/1LLgrMIAw5rk-oYYFCUJPYd5Ahh8_q2hc/view?usp=drivesdk" target="_blank" class="resource-link">REVISION TEST</a>
+                    <a href="https://drive.google.com/file/d/1oslvXlzmxUzEFBArwmRZgGrqQr_1IFK7/view?usp=drivesdk" target="_blank" class="resource-link">PAPER FINAL</a>
+                    <a href="https://drive.google.com/file/d/1z0WBp5hUfsrn31D2WCUqboKeLtXx9E8w/view?usp=drivesdk" target="_blank" class="resource-link">SUBJECT FINAL</a>
+                </div>
+            </div>
+            
+            <div class="resource-section">
+                <h4>BUET</h4>
+                <div class="resource-links">
+                    <a href="https://drive.google.com/file/d/11P8o1W2kzfedGMD9tUXYbPCcFA1M9ghv/view?usp=drivesdk" target="_blank" class="resource-link">PRELI</a>
+                    <a href="https://drive.google.com/file/d/1V37kQlMuTeVW4coXj33NvPPnX7b6Rk73/view?usp=drivesdk" target="_blank" class="resource-link">PRELI 4</a>
+                    <a href="https://drive.google.com/file/d/1qHhFlVNovdtcAVzrVvOcWJP7WZpH0Q0I/view?usp=drivesdk" target="_blank" class="resource-link">PRELI 2</a>
+                    <a href="https://drive.google.com/file/d/1inPf0v81UGvn0Ytqw_8qEymmIPcIZUyo/view?usp=drivesdk" target="_blank" class="resource-link">PRELI 1</a>
+                    <a href="https://drive.google.com/file/d/1p9nLRvFO223ppFj7u1A2c29Ex--fQEgp/view?usp=drive_link" target="_blank" class="resource-link">WRITTEN ALL</a>
+                </div>
+            </div>
+            
+            <div class="resource-section">
+                <h4>RUET</h4>
+                <div class="resource-links">
+                    <a href="https://drive.google.com/file/d/188ulSbm7e-dRfUNcAQJcKcoOoCvhBs1b/view?usp=drivesdk" target="_blank" class="resource-link">PRELI 1 A</a>
+                    <a href="https://drive.google.com/file/d/1GVHys15USnqDxENXY1hd90Dx4NVyMS52/view?usp=drivesdk" target="_blank" class="resource-link">PRELI 1 B</a>
+                    <a href="https://drive.google.com/file/d/1XmVuRHW_HR7n1Uu4x4UZfmB6L3W9kkaT/view?usp=drivesdk" target="_blank" class="resource-link">PRELI 2</a>
+                    <a href="https://drive.google.com/file/d/1_u0KBEfUcYcueC-sCHxCtJQGPhXYifEu/view?usp=drivesdk" target="_blank" class="resource-link">PRELI 3</a>
+                </div>
+            </div>
+            
+            <div class="resource-section">
+                <h4>CUET</h4>
+                <div class="resource-links">  
+                    <a href="https://drive.google.com/file/d/1JwSB8zH72ek8_duoszLjnd-efkUF7juC/view?usp=drive_link" target="_blank" class="resource-link">WRITTEN 1</a>
+                    <a href="https://drive.google.com/file/d/1U35REf1QPnwcrTSdwWPjXaHuw5JZH3xm/view?usp=drive_link" target="_blank" class="resource-link">WRITTEN 2</a>
+                </div>
+            </div>
+            
+            <div class="resource-section">
+                <h4>KUET</h4>
+                <div class="resource-links">  
+                    <a href="https://drive.google.com/file/d/1zvGlbGhzAQtiT6YuCrHXALibfov70-SL/view?usp=drive_link" target="_blank" class="resource-link" >KUET MCQ</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- ACS Card -->
+        <div class="subject-card" data-keywords="acs question paper weekly paper final buet kuet">
+            <h3>ACS</h3>
+            <div class="resource-section">
+                <h4>DAILY</h4>
+                <div class="resource-links">
+                  <a href="https://drive.google.com/file/d/1BXqJSXvWRy_9Uyh0nVl8HZ6ZxgWotQOr/view?usp=drivesdk" class="resource-link" target="_blank">Chemical Change Part 1 Set 1</a>
+<a href="https://drive.google.com/file/d/1RNt4BXxQV2bX9FZiFbZT_DHkM8AGCq9b/view?usp=drivesdk" class="resource-link" target="_blank">Chemical Change Part 1 Home Practise</a>
+<a href="https://drive.google.com/file/d/1plTpJpZXUqKGWW0EcBIL1eWwahcc25wu/view?usp=drivesdk" class="resource-link" target="_blank">Chemical Change Part 1 Set 2</a>
+<a href="https://drive.google.com/file/d/16Sg0Cr_getAeFTDusgwvceunESA1xDS3/view?usp=drivesdk" class="resource-link" target="_blank">Qualitative Chemistry Home Practice</a>
+<a href="https://drive.google.com/file/d/1v6X1hWMwbY9s6ur9c5SaWTBl7n7Cvskk/view?usp=drivesdk" class="resource-link" target="_blank">Qualitative Home Practice</a>
+<a href="https://drive.google.com/file/d/1Fxc1xZpvIJ3ZL_L1ngNr6qjKuOg-OH6I/view?usp=drivesdk" class="resource-link" target="_blank">Qualitative Set 2</a>
+<a href="https://drive.google.com/file/d/1kXhm2jxOkZPzFH_8z90914LqqHYxRloi/view?usp=drivesdk" class="resource-link" target="_blank">Qualitative Chemistry Set 2</a>
+<a href="https://drive.google.com/file/d/137TU3Pmo91is1ldxUFzS7wjFNCrn9vyi/view?usp=drivesdk" class="resource-link" target="_blank">Porimangoto Set B (Engineering)  -1-</a>
+<a href="https://drive.google.com/file/d/1IWa2gKub4UGaBupyAQnsopsDiCjXjcF_/view?usp=drivesdk" class="resource-link" target="_blank">Porimangoto Set A (Engineering)  -1-</a>
+<a href="https://drive.google.com/file/d/1dVo3wBvSyL3WR26vt_tiJY4hhfdN3KDk/view?usp=drivesdk" class="resource-link" target="_blank">Porimangoto Practice Set (Engineering)  -1-</a>
+<a href="https://drive.google.com/file/d/19cC1E0mlCVzp8t2xguf8KhE1m84IgwCT/view?usp=drivesdk" class="resource-link" target="_blank">Qualitative Chemistry Set 1</a>
+<a href="https://drive.google.com/file/d/1S1X0t71ynYfJSIqXmLP0LmDYXLc6EVoI/view?usp=drivesdk" class="resource-link" target="_blank">Qualitative Set 1</a>
+<a href="https://drive.google.com/file/d/1drUCftSulVZwWyCP5_tkYRsUSirp5RzZ/view?usp=drivesdk" class="resource-link" target="_blank">circle1 </a>
+<a href="https://drive.google.com/file/d/1MOXsd3lnvGojME8p91pKT0zDO1iyyMSI/view?usp=drivesdk" class="resource-link" target="_blank">circle 2</a>
+<a href="https://drive.google.com/file/d/1nRFj0GYcyMQDRx5c23fzxiVUQooyyMz5/view?usp=drivesdk" class="resource-link" target="_blank">matrix+poly 1</a>
+<a href="https://drive.google.com/file/d/13iAFlH_rwEjkv6WAlrnJlcVIFw5vVEy4/view?usp=drivesdk" class="resource-link" target="_blank">matrix+poly 2</a>
+<a href="https://drive.google.com/file/d/12v2rB7cXkVnQwzX5BA5O1LZrOMpIviSU/view?usp=drivesdk" class="resource-link" target="_blank">matrix+poly 3</a>
+
+<a href="https://drive.google.com/file/d/11WD8PNOCmK4K1BxhykLbpUiXyORPcWb5/view?usp=drivesdk" class="resource-link" target="_blank">Daily_21_Differentiation_Set_B</a>
+<a href="https://drive.google.com/file/d/1Mj9SsptgKnMVYWGOUB47jBwpuobr4IOw/view?usp=drivesdk" class="resource-link" target="_blank">Daily_21_Differentiation_Set_A</a>
+<a href="https://drive.google.com/file/d/1FX-bzQlclG_-XP0YUNxGxizI6ks2SI0Z/view?usp=drivesdk" class="resource-link" target="_blank">Daily_21_Differentiation_Practice</a>
+
+<a href="https://drive.google.com/file/d/1gWlTaVfiKAMKHpv_a0WUZouJkm2QeL8d/view?usp=drivesdk" class="resource-link" target="_blank">trig-A    </a>
+<a href="https://drive.google.com/file/d/1pof1u-iGy81kTa0TI57upl42z-8lYbli/view?usp=drivesdk" class="resource-link" target="_blank">trig-D     </a>
+<a href="https://drive.google.com/file/d/1xPo2-C_5XsL5UPNDhHXu_6GRZrQlKg8S/view?usp=drivesdk" class="resource-link" target="_blank">trig-B     </a>
+<a href="https://drive.google.com/file/d/1Ccc2qBpfg0gwX7OMYDJM9Rt_xAljtoSS/view?usp=drivesdk" class="resource-link" target="_blank">Conics   Set 1 C   </a>
+<a href="https://drive.google.com/file/d/1Zf_vbWmcWI0Ci_-VG0u1TXQx-ubdUgK8/view?usp=drivesdk" class="resource-link" target="_blank">Conics   Set 2 C   </a>
+<a href="https://drive.google.com/file/d/1zEqp-QaGLTDCShE-4JhnNg1TxOPymgy5/view?usp=drivesdk" class="resource-link" target="_blank">Conics   Set 4 C  </a>
+<a href="https://drive.google.com/file/d/15qknmCwfnRh6jo-x_J_qH5v5smohpsd-/view?usp=drivesdk" class="resource-link" target="_blank">Ideal Gas + Thermodynamics Set 2</a>
+<a href="https://drive.google.com/file/d/1CvUi8MnBoEVvEoI_g8KSN6lIEyK16UCu/view?usp=drivesdk" class="resource-link" target="_blank">Ideal Gas + Thermodynamics Home Practise</a>
+<a href="https://drive.google.com/file/d/1o-A-UbpM1oU65b6KXEcUZQrNs5xTKHZG/view?usp=drivesdk" class="resource-link" target="_blank">Ideal Gas + Thermodynamics Set 1</a>
+<a href="https://drive.google.com/file/d/1qp2f-wQkdGKlrvP_mJUw9iR61RbcR2I4/view?usp=drivesdk" class="resource-link" target="_blank">পদার্থের_গাঠনিক_ধর্ম_+_পর্যাবৃত্ত_গতি_Home_Practise_1</a>
+<a href="https://drive.google.com/file/d/1y3fJp1nPKPyNlglsqq09uHJH9M_qnc86/view?usp=drivesdk" class="resource-link" target="_blank">পদার্থের_গাঠনিক_ধর্ম_+_পর্যাবৃত্ত_গতি_Set_2</a>
+<a href="https://drive.google.com/file/d/1ztzaoIyAU2_4aUa8iNtuuVwd64Mg-kNp/view?usp=drivesdk" class="resource-link" target="_blank">পদার্থের_গাঠনিক_ধর্ম_+_পর্যাবৃত্ত_গতি_Set_1</a>
+<a href="https://drive.google.com/file/d/1HlYmIyCgazUwpOvrIJfP8HXSRSZv-y8B/view?usp=drivesdk" class="resource-link" target="_blank">Newtonian Mechanics Set 2</a>
+<a href="https://drive.google.com/file/d/12JicG2iU8myvJLkjHPR4rr8_IV_EX7SD/view?usp=drivesdk" class="resource-link" target="_blank">Newtonian Mechanics Set 1</a>
+<a href="https://drive.google.com/file/d/1jw-GeuBLHi9WbBAVncaI-6X5MEsJ7Mwd/view?usp=drivesdk" class="resource-link" target="_blank">Newtonian Mechanics Home Practice</a>
+<a href="https://drive.google.com/file/d/19n44gnwBAzp9npzUk7GaYTyHAT43E93g/view?usp=drivesdk" class="resource-link" target="_blank">Vector Home Practise (1)</a>
+<a href="https://drive.google.com/file/d/1o3H7okW5farLyiWMp9R0DUyHwVKijLfS/view?usp=drivesdk" class="resource-link" target="_blank">Vector Set 1 (1)</a>
+<a href="https://drive.google.com/file/d/1UaQZgU8gjazwK1o30V3uAt3kkty9qWdf/view?usp=drivesdk" class="resource-link" target="_blank">Vector Set 2 (1)</a>
+<a href="https://drive.google.com/file/d/1ub7JBLjzuiMfVA9Ag-O6j_HFzP3xMH76/view?usp=drivesdk" class="resource-link" target="_blank">WEP Set 2</a>
+<a href="https://drive.google.com/file/d/1O5SenWbI6TVUJKLTMdtzwFYddMLiny1Q/view?usp=drivesdk" class="resource-link" target="_blank">WEP Set 1 (1)</a>
+<a href="https://drive.google.com/file/d/1ZTlJPgTVOpdKL3_T__GeVmmyRQXRwbkN/view?usp=drivesdk" class="resource-link" target="_blank">WEP Home Practise</a>
+
+                </div>
+            </div>
+            <div class="resource-section">
+                <h4>WEEKLY</h4>
+                <div class="resource-links">
+                    <a href="https://drive.google.com/file/d/1JVreyB6RSFYUsPbO85zDII3fymRlCi6i/view?usp=drivesdk"  target="_blank"class="resource-link">WEEKLY 1 A</a>
+                    <a href="https://drive.google.com/file/d/1ZHqPtj-EEMwwr6GYdLhC4ON0kjOdFBZE/view?usp=drivesdk"  target="_blank"class="resource-link">WEEKLY 1 B</a>
+                    <a href="https://drive.google.com/file/d/1-AmxMz6xBxS84oqyIPR8NMcFJh8NZ6dm/view?usp=drivesdk" target="_blank" class="resource-link">WEEKLY 2 A</a>
+                    <a href="https://drive.google.com/file/d/1S4AlfqC-cIwQ_NOJcKZNvcBwmmQ_mHNE/view?usp=drivesdk" target="_blank" class="resource-link">WEEKLY 2 B</a>
+                    <a href="https://drive.google.com/file/d/1eXZIUmtTZqkPd7f6Ju_wIEZ-T93I-jbu/view?usp=drivesdk" target="_blank" class="resource-link">WEEKLY 3 A</a>
+                    <a href="https://drive.google.com/file/d/1Rw4ekiUsLzjxpYF0pUPWvQbObphDtH90/view?usp=drivesdk" target="_blank" class="resource-link">WEEKLY 3 B</a>
+                    <a href="https://drive.google.com/file/d/1W2b1qyaq6uACDTB0Ey3EVtLHYJg00ebc/view?usp=drivesdk" target="_blank" class="resource-link">WEEKLY 4 A</a>
+                    <a href="https://drive.google.com/file/d/1EjDLkEWppvqd-w1At5gQ_XB5DlHvqvby/view?usp=drivesdk" target="_blank" class="resource-link">WEEKLY 4 B</a>
+                    <a href="https://drive.google.com/file/d/1ATNzjOfdOMid1GRNvqs2P8-2uIMWXDOF/view?usp=drivesdk" target="_blank" class="resource-link">WEEKLY 5 A</a>
+                    <a href="https://drive.google.com/file/d/1Zwy5wOxOeHO60Z39fA3Vi-u8ynpQ0gWF/view?usp=drivesdk" target="_blank" class="resource-link">WEEKLY 5 B</a>
+                        <a href="https://drive.google.com/file/d/10bBnOnDsobvU8j7Ck6xIrddjLMt5uYXA/view?usp=drivesdk" target="_blank" class="resource-link">WEEKLY 6 A</a>
+                        <a href="https://drive.google.com/file/d/1BCH43NXCHmY0Pa3J-WEIQEJwJK9D9OVU/view?usp=drivesdk" target="_blank" class="resource-link">WEEKLY 6 B</a>
+                        <a href="https://drive.google.com/file/d/1y_IFUDjymeOTrd7Uxy3aIZ2PJXEhS9OW/view?usp=drivesdk" target="_blank" class="resource-link">WEEKLY 6 D</a>
+                        <a href="https://drive.google.com/file/d/1xQwneSEo_FoegomCzjIG22e9BpZxA5x1/view?usp=drivesdk" target="_blank" class="resource-link">WEEKLY 7 A</a>
+                        <a href="https://drive.google.com/file/d/1XLuKgDZKt0DPI0-eMW6aM4hzWcXXkUxl/view?usp=drivesdk" target="_blank" class="resource-link">WEEKLY 7 B</a>
+                        <a href="https://drive.google.com/file/d/1WD4Jelj8tRYXi0y5iTiSSbWNQW8YbvTr/view?usp=drivesdk" target="_blank" class="resource-link">WEEKLY 8 A</a>
+                        <a href="https://drive.google.com/file/d/1QKBU9NyMFJFqpMWo3S7VQbLomLNgO_LE/view?usp=drivesdk" target="_blank" class="resource-link">WEEKLY 8 B</a>
+                        <a href="https://drive.google.com/file/d/1eXZIUmtTZqkPd7f6Ju_wIEZ-T93I-jbu/view?usp=drivesdk" target="_blank" class="resource-link">WEEKLY 9 A</a>   
+                        <a href="https://drive.google.com/file/d/1SJWwhnftWxtC3Ma-OWNQ5bS-LM46AZIq/view?usp=drivesdk" target="_blank" class="resource-link">WEEKLY 9 B</a>
+                    
+                </div>
+            </div>
+            
+            <div class="resource-section">
+                <h4>PAPER FINAL</h4>
+                <div class="resource-links">
+                    <a href="https://drive.google.com/file/d/1ul3LflNr4NdZTT26SmDTu5fQV0J5uTh8/view?usp=drive_link" target="_blank" class="resource-link">MCQ 1</a>
+                    <a href="https://drive.google.com/file/d/10FRWqf9J624Bm3lsIgsJW0E2VqoxUqUm/view?usp=drive_link" target="_blank" class="resource-link">WRITTEN 1</a>
+                    <a href="https://drive.google.com/file/d/1roHAhJZC3Ox2VZvwEJ6x5IJuF-3cHnwi/view?usp=drive_link" target="_blank" class="resource-link">MCQ 2</a>
+                    <a href="https://drive.google.com/file/d/1uo52OQNry0Vd31Aj34sV9P6CWghL5QAN/view?usp=drive_link" target="_blank" class="resource-link">WRITTEN 2</a>
+                </div>
+            </div>
+            
+            <div class="resource-section">
+                <h4>BUET</h4>
+                <div class="resource-links">
+                    <a href="https://drive.google.com/file/d/1LRTkT-ZRb27S5Pmf7MY1HRKhJtaXpXBm/view?usp=drive_link" target="_blank" class="resource-link">PRELI 1</a>
+                    <a href="https://drive.google.com/file/d/1amf3dwGhWkFso_Gc92XiqXQ2y2TWRAgz/view?usp=drive_link" target="_blank" class="resource-link">PRELI 2</a>
+                    <a href="https://drive.google.com/file/d/1-pA21aAJ8_KGWRIwjTV-MPQFQdBUM4SQ/view?usp=drive_link" target="_blank" class="resource-link">PRELI 3</a>
+                    <a href="https://drive.google.com/file/d/1uxMFgv6fipar3nfJRq7csPVkuqFC18Io/view?usp=drive_link" target="_blank" class="resource-link">PRELI 4</a>
+                    <a href="https://drive.google.com/file/d/1Jwt-WCF7OTjfOCQpuI0m65xTRLni-05O/view?usp=drive_link" target="_blank" class="resource-link">PRELI 5</a>
+                    <a href="https://drive.google.com/file/d/1dXXp1Z6I5ZprMcHLK9BIdOxz7zpti5M4/view?usp=drive_link" target="_blank" class="resource-link">WRITTEN 1</a>
+                    <a href="https://drive.google.com/file/d/1HdO_JiV6wqIEaAvLu1oD9at0VrTp_Q6O/view?usp=drive_link" target="_blank" class="resource-link">WRITTEN 2</a>
+                    <a href="https://drive.google.com/file/d/1CVm55-TwK78z-1TThpx-PHIJjEA6n6tE/view?usp=drive_link" target="_blank" class="resource-link">WRITTEN 3</a>
+                    <a href="https://drive.google.com/file/d/12NLaVe9se0P0WyqRFHCzlciT2blDB056/view?usp=drive_link" target="_blank" class="resource-link">WRITTEN 4</a>
+                </div>
+            </div>
+            
+            <div class="resource-section">
+                <h4>KUET</h4>
+                <div class="resource-links">
+                    <a href="https://drive.google.com/file/d/1F2VSCB_hJLwCSYQkqnNKzq7aR3z8Oo5u/view?usp=drive_link" target="_blank" class="resource-link">MCQ 1</a>
+                    <a href="https://drive.google.com/file/d/1KeMx925a5V196t_-r25yhWhug90IyiHW/view?usp=drive_link" target="_blank" class="resource-link">MCQ 2</a>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+</div>
+<div id="bookmarks" class="tab-panel">
+    <div class="bookmarks-section">
+        <h3><i class="fas fa-bookmark"></i> Your Saved Resources</h3>
+        <div class="bookmarks-grid" id="bookmarksContainer">
+            <div class="bookmarks-empty">
+                <p>You haven't saved any bookmarks yet.</p>
+                <p>Click the <i class="far fa-bookmark"></i> icon on any resource to save it here.</p>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Enhanced Color Picker Modal -->  
+<div class="color-picker-overlay" id="colorPickerOverlay"></div>  
+<div class="color-picker-modal" id="colorPickerModal">  
+  <h3 class="color-picker-title">🎨 Customize Your Theme</h3>  
+    
+  <div class="color-picker-tabs">  
+    <button class="color-picker-tab active" data-tab="presets">Presets</button>  
+    <button class="color-picker-tab" data-tab="custom">Custom</button>  
+  </div>  
+    
+  <!-- Preset Themes Section -->  
+  <div class="color-picker-section active" id="presets">  
+    <div class="preset-themes">  
+      <div class="theme-option" data-theme="default">  
+        <div class="theme-name">Ocean Blue</div>  
+        <div class="theme-colors">  
+          <div class="theme-color" style="background: #667eea;"></div>  
+          <div class="theme-color" style="background: #764ba2;"></div>  
+          <div class="theme-color" style="background: #6366f1;"></div>  
+        </div>  
+      </div>  
+        
+      <div class="theme-option" data-theme="sunset">  
+        <div class="theme-name">Sunset</div>  
+        <div class="theme-colors">  
+          <div class="theme-color" style="background: #ff9a8b;"></div>  
+          <div class="theme-color" style="background: #ff6b95;"></div>  
+          <div class="theme-color" style="background: #ff4757;"></div>  
+        </div>  
+      </div>  
+        
+      <div class="theme-option" data-theme="forest">  
+        <div class="theme-name">Forest</div>  
+        <div class="theme-colors">  
+          <div class="theme-color" style="background: #11998e;"></div>  
+          <div class="theme-color" style="background: #38ef7d;"></div>  
+          <div class="theme-color" style="background: #059669;"></div>  
+        </div>  
+      </div>  
+        
+      <div class="theme-option" data-theme="purple">  
+        <div class="theme-name">Purple Rain</div>  
+        <div class="theme-colors">  
+          <div class="theme-color" style="background: #667eea;"></div>  
+          <div class="theme-color" style="background: #764ba2;"></div>  
+          <div class="theme-color" style="background: #8b5cf6;"></div>  
+        </div>  
+      </div>  
+        
+      <div class="theme-option" data-theme="cyber">  
+        <div class="theme-name">Cyber</div>  
+        <div class="theme-colors">  
+          <div class="theme-color" style="background: #00dbde;"></div>  
+          <div class="theme-color" style="background: #fc00ff;"></div>  
+          <div class="theme-color" style="background: #06d6a0;"></div>  
+        </div>  
+      </div>  
+        
+      <div class="theme-option" data-theme="golden">  
+        <div class="theme-name">Golden Hour</div>  
+        <div class="theme-colors">  
+          <div class="theme-color" style="background: #ffd700;"></div>  
+          <div class="theme-color" style="background: #ffa500;"></div>  
+          <div class="theme-color" style="background: #f59e0b;"></div>  
+        </div>  
+      </div>  
+    </div>  
+  </div>  
+    
+  <!-- Custom Colors Section -->  
+  <div class="color-picker-section" id="custom">  
+    <div class="mode-toggle">  
+      <label>Editing:</label>  
+      <select id="modeSelector">  
+        <option value="light">Light Mode</option>  
+        <option value="dark">Dark Mode</option>  
+      </select>  
+    </div>  
+      
+    <div class="color-customization">  
+      <div class="color-group">  
+        <div class="color-group-title">🌈 Background Gradient</div>  
+        <div class="color-input-row">  
+          <div class="color-input-label">Color 1:</div>  
+          <div class="color-input-wrapper">  
+            <input type="color" id="bgColor1" value="#667eea">  
+            <input type="text" id="bgColor1Hex" value="#667eea">  
+          </div>  
+        </div>  
+        <div class="color-input-row">  
+          <div class="color-input-label">Color 2:</div>  
+          <div class="color-input-wrapper">  
+            <input type="color" id="bgColor2" value="#764ba2">  
+            <input type="text" id="bgColor2Hex" value="#764ba2">  
+          </div>  
+        </div>  
+      </div>  
+        
+      <div class="color-group">  
+        <div class="color-group-title">🎯 Primary Colors</div>  
+        <div class="color-input-row">  
+          <div class="color-input-label">Primary:</div>  
+          <div class="color-input-wrapper">  
+            <input type="color" id="primaryColor" value="#6366f1">  
+            <input type="text" id="primaryColorHex" value="#6366f1">  
+          </div>  
+        </div>  
+        <div class="color-input-row">  
+          <div class="color-input-label">Secondary:</div>  
+          <div class="color-input-wrapper">  
+            <input type="color" id="secondaryColor" value="#8b5cf6">  
+            <input type="text" id="secondaryColorHex" value="#8b5cf6">  
+          </div>  
+        </div>  
+        <div class="color-input-row">  
+          <div class="color-input-label">Accent:</div>  
+          <div class="color-input-wrapper">  
+            <input type="color" id="accentColor" value="#06d6a0">  
+            <input type="text" id="accentColorHex" value="#06d6a0">  
+          </div>  
+        </div>  
+      </div>  
+        
+      <div class="color-group">  
+        <div class="color-group-title">📝 Text Colors</div>  
+        <div class="color-input-row">  
+          <div class="color-input-label">Main Text:</div>  
+          <div class="color-input-wrapper">  
+            <input type="color" id="textColor" value="#1e293b">  
+            <input type="text" id="textColorHex" value="#1e293b">  
+          </div>  
+        </div>  
+        <div class="color-input-row">  
+          <div class="color-input-label">Light Text:</div>  
+          <div class="color-input-wrapper">  
+            <input type="color" id="textLightColor" value="#64748b">  
+            <input type="text" id="textLightColorHex" value="#64748b">  
+          </div>  
+        </div>  
+      </div>  
+    </div>  
+  </div>  
+    
+  <div class="color-picker-actions">  
+    <button class="color-picker-btn reset" id="colorPickerReset">Reset to Default</button>  
+    <button class="color-picker-btn cancel" id="colorPickerCancel">Cancel</button>  
+    <button class="color-picker-btn apply" id="colorPickerApply">Apply Theme</button>  
+  </div>  
+</div>  
+
+    <script>
+      // Fixed JavaScript for Engineering Dashboard  
+  
+// Global variables  
+let searchAllTabs = true;  
+let currentMode = 'light'; // Properly declared  
+let currentTheme = null;  
+const searchInput = document.getElementById('searchInput');  
+const searchModeToggle = document.getElementById('searchModeToggle');  
+const tabs = document.querySelectorAll('.nav-tab');  
+const panels = document.querySelectorAll('.tab-panel');  
+const darkModeToggle = document.getElementById('darkModeToggle');  
+const bookmarksContainer = document.getElementById('bookmarksContainer');  
+  
+// Color picker elements  
+const colorPickerToggle = document.getElementById('colorPickerToggle');  
+const colorPickerModal = document.getElementById('colorPickerModal');  
+const colorPickerOverlay = document.getElementById('colorPickerOverlay');  
+const colorPickerCancel = document.getElementById('colorPickerCancel');  
+const colorPickerApply = document.getElementById('colorPickerApply');  
+const colorPickerReset = document.getElementById('colorPickerReset');  
+const modeSelector = document.getElementById('modeSelector');  
+  
+// Color picker tabs  
+const colorPickerTabs = document.querySelectorAll('.color-picker-tab');  
+const colorPickerSections = document.querySelectorAll('.color-picker-section');  
+  
+// Theme presets  
+const themeOptions = document.querySelectorAll('.theme-option');  
+  
+// Color inputs - Initialize with default values  
+let colorInputs = {  
+    light: {  
+        bgColor1: '#667eea',  
+        bgColor2: '#764ba2',  
+        primaryColor: '#6366f1',  
+        secondaryColor: '#8b5cf6',  
+        accentColor: '#06d6a0',  
+        textColor: '#1e293b',  
+        textLightColor: '#64748b'  
+    },  
+    dark: {  
+        bgColor1: '#0f172a',  
+        bgColor2: '#1e1b4b',  
+        primaryColor: '#06d6a0',  
+        secondaryColor: '#7c3aed',  
+        accentColor: '#06d6a0',  
+        textColor: '#f1f5f9',  
+        textLightColor: '#cbd5e1'  
+    }  
+};  
+  
+// Predefined themes  
+const themes = {  
+    default: {  
+        light: {  
+            bgColor1: '#667eea',  
+            bgColor2: '#764ba2',  
+            primaryColor: '#6366f1',  
+            secondaryColor: '#8b5cf6',  
+            accentColor: '#06d6a0',  
+            textColor: '#1e293b',  
+            textLightColor: '#64748b'  
+        },  
+        dark: {  
+            bgColor1: '#0f172a',  
+            bgColor2: '#1e1b4b',  
+            primaryColor: '#06d6a0',  
+            secondaryColor: '#7c3aed',  
+            accentColor: '#06d6a0',  
+            textColor: '#f1f5f9',  
+            textLightColor: '#cbd5e1'  
+        }  
+    },  
+    sunset: {  
+        light: {  
+            bgColor1: '#ff9a8b',  
+            bgColor2: '#ff6b95',  
+            primaryColor: '#ff4757',  
+            secondaryColor: '#ff3838',  
+            accentColor: '#ff6348',  
+            textColor: '#2c2c54',  
+            textLightColor: '#40407a'  
+        },  
+        dark: {  
+            bgColor1: '#2c1810',  
+            bgColor2: '#4a1c28',  
+            primaryColor: '#ff6b95',  
+            secondaryColor: '#ff9a8b',  
+            accentColor: '#ff6348',  
+            textColor: '#fff5f5',  
+            textLightColor: '#fed7d7'  
+        }  
+    },  
+    forest: {  
+        light: {  
+            bgColor1: '#11998e',  
+            bgColor2: '#38ef7d',  
+            primaryColor: '#059669',  
+            secondaryColor: '#10b981',  
+            accentColor: '#34d399',  
+            textColor: '#064e3b',  
+            textLightColor: '#047857'  
+        },  
+        dark: {  
+            bgColor1: '#064e3b',  
+            bgColor2: '#065f46',  
+            primaryColor: '#34d399',  
+            secondaryColor: '#10b981',  
+            accentColor: '#6ee7b7',  
+            textColor: '#ecfdf5',  
+            textLightColor: '#d1fae5'  
+        }  
+    },  
+    purple: {  
+        light: {  
+            bgColor1: '#667eea',  
+            bgColor2: '#764ba2',  
+            primaryColor: '#8b5cf6',  
+            secondaryColor: '#a855f7',  
+            accentColor: '#c084fc',  
+            textColor: '#581c87',  
+            textLightColor: '#7c3aed'  
+        },  
+        dark: {  
+            bgColor1: '#1e1b4b',  
+            bgColor2: '#312e81',  
+            primaryColor: '#c084fc',  
+            secondaryColor: '#a855f7',  
+            accentColor: '#d8b4fe',  
+            textColor: '#f3e8ff',  
+            textLightColor: '#e9d5ff'  
+        }  
+    },  
+    cyber: {  
+        light: {  
+            bgColor1: '#00dbde',  
+            bgColor2: '#fc00ff',  
+            primaryColor: '#06d6a0',  
+            secondaryColor: '#00b4d8',  
+            accentColor: '#0077b6',  
+            textColor: '#023047',  
+            textLightColor: '#219ebc'  
+        },  
+        dark: {  
+            bgColor1: '#03045e',  
+            bgColor2: '#023047',  
+            primaryColor: '#00dbde',  
+            secondaryColor: '#fc00ff',  
+            accentColor: '#06d6a0',  
+            textColor: '#caf0f8',  
+            textLightColor: '#90e0ef'  
+        }  
+    },  
+    golden: {  
+        light: {  
+            bgColor1: '#ffd700',  
+            bgColor2: '#ffa500',  
+            primaryColor: '#f59e0b',  
+            secondaryColor: '#d97706',  
+            accentColor: '#fbbf24',  
+            textColor: '#92400e',  
+            textLightColor: '#b45309'  
+        },  
+        dark: {  
+            bgColor1: '#451a03',  
+            bgColor2: '#78350f',  
+            primaryColor: '#fbbf24',  
+            secondaryColor: '#f59e0b',  
+            accentColor: '#fcd34d',  
+            textColor: '#fef3c7',  
+            textLightColor: '#fde68a'  
+        }  
+    }  
+};  
+  
+// Initialize the dashboard  
+document.addEventListener('DOMContentLoaded', function() {  
+    initializeDashboard();  
+    setupEventListeners();  
+    initializeColorPicker();  
+    initializeDarkMode();  
+    initializeBookmarks();  
+    animateCardsOnLoad();  
+});  
+  
+// Initialize dashboard components  
+function initializeDashboard() {  
+    updateSearchModeButton();  
+    addSubjectAttributes();  
+}  
+  
+// Setup all event listeners  
+function setupEventListeners() {  
+    // Tab switching  
+    tabs.forEach(tab => {  
+        tab.addEventListener('click', handleTabClick);  
+    });  
+  
+    // Search functionality  
+    searchInput.addEventListener('input', handleSearchInput);  
+      
+    // Search mode toggle  
+    if (searchModeToggle) {  
+        searchModeToggle.addEventListener('click', handleSearchModeToggle);  
+    }  
+  
+    // Clear search on tab switch (only in current tab mode)  
+    tabs.forEach(tab => {  
+        tab.addEventListener('click', handleTabSwitchSearch);  
+    });  
+      
+    // Dark mode toggle  
+    if (darkModeToggle) {  
+        darkModeToggle.addEventListener('click', toggleDarkMode);  
+    }  
+  
+    // Bookmark buttons  
+    document.addEventListener('click', function(event) {  
+        if (event.target.closest('.bookmark-btn')) {  
+            handleBookmarkClick(event);  
+        }  
+    });  
+  
+    // Keyboard shortcuts  
+    document.addEventListener('keydown', handleKeyboardShortcuts);  
+}  
+  
+// Initialize dark mode from localStorage - FIXED  
+function initializeDarkMode() {  
+    const savedMode = localStorage.getItem('darkMode');  
+      
+    if (savedMode === 'enabled') {  
+        document.body.classList.add('dark-mode');  
+        darkModeToggle.innerHTML = '<i class="fas fa-sun"></i>';  
+        currentMode = 'dark';      
+    } else {  
+        document.body.classList.remove('dark-mode');  
+        darkModeToggle.innerHTML = '<i class="fas fa-moon"></i>';  
+        currentMode = 'light';  
+    }  
+      
+    // Apply theme after setting the mode  
+    setTimeout(() => {  
+        applyTheme();  
+    }, 100);  
+}  
+  
+// Toggle dark mode and save preference - FIXED  
+function toggleDarkMode() {  
+    document.body.classList.toggle('dark-mode');  
+      
+    const isDark = document.body.classList.contains('dark-mode');  
+    darkModeToggle.innerHTML = isDark ? '<i class="fas fa-sun"></i>' : '<i class="fas fa-moon"></i>';  
+    localStorage.setItem('darkMode', isDark ? 'enabled' : 'disabled');  
+    currentMode = isDark ? 'dark' : 'light';  
+      
+    // Apply current theme to new mode  
+    applyTheme();  
+}  
+  
+// Handle bookmark clicks  
+function handleBookmarkClick(event) {  
+    const button = event.target.closest('.bookmark-btn');  
+    const card = button.closest('.subject-card, .english-card');  
+      
+    if (!card) return;  
+      
+    button.classList.toggle('bookmarked');  
+    button.innerHTML = button.classList.contains('bookmarked') ?   
+        '<i class="fas fa-bookmark"></i>' : '<i class="far fa-bookmark"></i>';  
+      
+    // Save bookmark state  
+    const cardId = card.dataset.id;  
+    if (!cardId) return;  
+      
+    let bookmarks = JSON.parse(localStorage.getItem('bookmarks')) || [];  
+      
+    if (button.classList.contains('bookmarked')) {  
+        // Add to bookmarks  
+        if (!bookmarks.includes(cardId)) {  
+            bookmarks.push(cardId);  
+            // Add slight animation when bookmarking  
+            button.classList.add('pulse');  
+            setTimeout(() => button.classList.remove('pulse'), 300);  
+        }  
+    } else {  
+        // Remove from bookmarks  
+        bookmarks = bookmarks.filter(id => id !== cardId);  
+    }  
+      
+    localStorage.setItem('bookmarks', JSON.stringify(bookmarks));  
+      
+    // If we're on the bookmarks tab, update it  
+    if (document.querySelector('.nav-tab[data-tab="bookmarks"]').classList.contains('active')) {  
+        loadBookmarks();  
+    }  
+}  
+  
+// Initialize bookmarks from localStorage  
+function initializeBookmarks() {  
+    // Add IDs to all cards if they don't have them  
+    document.querySelectorAll('.subject-card, .english-card').forEach((card, index) => {  
+        if (!card.dataset.id) {  
+            const tabId = card.closest('.tab-panel').id;  
+            card.dataset.id = `${tabId}-${index}`;  
+        }  
+    });  
+      
+    // Load bookmark states  
+    const bookmarks = JSON.parse(localStorage.getItem('bookmarks')) || [];  
+    bookmarks.forEach(cardId => {  
+        const button = document.querySelector(`[data-id="${cardId}"] .bookmark-btn`);  
+        if (button) {  
+            button.classList.add('bookmarked');  
+            button.innerHTML = '<i class="fas fa-bookmark"></i>';  
+        }  
+    });  
+}  
+  
+// Load bookmarks into bookmarks tab  
+function loadBookmarks() {  
+    const bookmarks = JSON.parse(localStorage.getItem('bookmarks')) || [];  
+    bookmarksContainer.innerHTML = '';  
+      
+    if (bookmarks.length === 0) {  
+        bookmarksContainer.innerHTML = `  
+            <div class="bookmarks-empty">  
+                <p>You haven't saved any bookmarks yet.</p>  
+                <p>Click the <i class="far fa-bookmark"></i> icon on any resource to save it here.</p>  
+            </div>  
+        `;  
+        return;  
+    }  
+      
+    bookmarks.forEach(cardId => {  
+        const originalCard = document.querySelector(`[data-id="${cardId}"]`);  
+        if (originalCard) {  
+            const cardClone = originalCard.cloneNode(true);  
+            cardClone.style.display = 'block';  
+            bookmarksContainer.appendChild(cardClone);  
+        }  
+    });  
+}  
+  
+// Handle tab clicking  
+function handleTabClick(event) {  
+    const clickedTab = event.currentTarget;  
+    const tabName = clickedTab.dataset.tab;  
+      
+    // Remove active class from all tabs and panels  
+    tabs.forEach(t => t.classList.remove('active'));  
+    panels.forEach(p => p.classList.remove('active'));  
+      
+    // Add active class to clicked tab and corresponding panel  
+    clickedTab.classList.add('active');  
+      
+    if (tabName === 'bookmarks') {  
+        loadBookmarks();  
+        document.getElementById(tabName).classList.add('active');  
+    } else {  
+        const targetPanel = document.getElementById(tabName);  
+        if (targetPanel) {  
+            targetPanel.classList.add('active');  
+        }  
+    }  
+      
+    // Reset search when switching tabs (if not in "search all" mode)  
+    if (!searchAllTabs) {  
+        searchInput.value = '';  
+        resetAllCards();  
+    }  
+}  
+  
+// Handle search input changes  
+function handleSearchInput(event) {  
+    const query = event.target.value.trim();  
+    performSearch(query);  
+}  
+  
+// Handle search mode toggle  
+function handleSearchModeToggle() {  
+    searchAllTabs = !searchAllTabs;  
+    updateSearchModeButton();  
+      
+    // Re-run search if there's text in the input  
+    const query = searchInput.value.trim();  
+    if (query) {  
+        performSearch(query);  
+    } else {  
+        resetAllCards();  
+    }  
+}  
+  
+// Handle search behavior when switching tabs  
+function handleTabSwitchSearch() {  
+    if (!searchAllTabs && searchInput.value.trim()) {  
+        searchInput.value = '';  
+        resetAllCards();  
+    }  
+}  
+  
+// Main search function  
+function performSearch(query) {  
+    if (!query) {  
+        resetAllCards();  
+        return;  
+    }  
+      
+    if (searchAllTabs) {  
+        searchAcrossAllTabs(query);  
+    } else {  
+        searchCurrentTabOnly(query);  
+    }  
+}  
+  
+// Search across all tabs  
+function searchAcrossAllTabs(query) {  
+    const allCards = document.querySelectorAll('.subject-card, .english-card');  
+    let matchingCards = [];  
+    let hasResults = false;  
+      
+    // Clear previous highlights  
+    clearHighlights();  
+      
+    allCards.forEach(card => {  
+        const cardText = card.textContent.toLowerCase();  
+        const keywords = card.dataset.keywords || '';  
+        const shouldShow = cardText.includes(query.toLowerCase()) ||   
+                          keywords.toLowerCase().includes(query.toLowerCase());  
+          
+        if (shouldShow) {  
+            hasResults = true;  
+            matchingCards.push(card);  
+            card.classList.add('search-highlight');  
+        } else {  
+            card.classList.remove('search-highlight');  
+        }  
+          
+        // Hide all cards initially  
+        card.style.display = 'none';  
+    });  
+      
+    if (hasResults && matchingCards.length > 0) {  
+        // Show the first matching card's tab and all matching cards  
+        const firstMatch = matchingCards[0];  
+        const tabToShow = getTabFromCard(firstMatch);  
+          
+        if (tabToShow) {  
+            switchToTab(tabToShow);  
+        }  
+          
+        // Show all matching cards  
+        matchingCards.forEach(card => {  
+            card.style.display = 'block';  
+        });  
+          
+        // Update search placeholder  
+        updateSearchPlaceholder(`Found ${matchingCards.length} result(s) across all subjects`);  
+        hideNoResults();  
+    } else {  
+        showNoResults();  
+    }  
+}  
+  
+// Search only in current tab  
+function searchCurrentTabOnly(query) {  
+    const activePanel = document.querySelector('.tab-panel.active');  
+    if (!activePanel) return;  
+      
+    const cards = activePanel.querySelectorAll('.subject-card, .english-card');  
+    let hasResults = false;  
+      
+    // Clear previous highlights  
+    clearHighlights();  
+      
+    cards.forEach(card => {  
+        const cardText = card.textContent.toLowerCase();  
+        const keywords = card.dataset.keywords || '';  
+        const shouldShow = cardText.includes(query.toLowerCase()) ||   
+                          keywords.toLowerCase().includes(query.toLowerCase());  
+          
+        card.style.display = shouldShow ? 'block' : 'none';  
+          
+        if (shouldShow) {  
+            hasResults = true;  
+            card.classList.add('search-highlight');  
+        } else {  
+            card.classList.remove('search-highlight');  
+        }  
+    });  
+      
+    if (!hasResults) {  
+        showNoResultsInCurrentTab();  
+    } else {  
+        hideNoResults();  
+    }  
+}  
+  
+// Helper function to get tab from card  
+function getTabFromCard(card) {  
+    // First try data-subject attribute  
+    if (card.dataset.subject) {  
+        return card.dataset.subject;  
+    }  
+      
+    // Fallback to finding parent tab panel  
+    const parentPanel = card.closest('.tab-panel');  
+    return parentPanel ? parentPanel.id : null;  
+}  
+  
+// Helper function to switch to a specific tab  
+function switchToTab(tabId) {  
+    // Remove active from all tabs and panels  
+    tabs.forEach(tab => tab.classList.remove('active'));  
+    panels.forEach(panel => panel.classList.remove('active'));  
+      
+    // Find and activate the target tab and panel  
+    const targetTab = document.querySelector(`[data-tab="${tabId}"]`);  
+    const targetPanel = document.getElementById(tabId);  
+      
+    if (targetTab && targetPanel) {  
+        targetTab.classList.add('active');  
+        targetPanel.classList.add('active');  
+    }  
+}  
+  
+// Reset all cards to visible state  
+function resetAllCards() {  
+    const allCards = document.querySelectorAll('.subject-card, .english-card');  
+    allCards.forEach(card => {  
+        card.style.display = 'block';  
+        card.classList.remove('search-highlight');  
+    });  
+      
+    hideNoResults();  
+    resetSearchPlaceholder();  
+}  
+  
+// Clear search highlights  
+function clearHighlights() {  
+    const highlightedCards = document.querySelectorAll('.search-highlight');  
+    highlightedCards.forEach(card => {  
+        card.classList.remove('search-highlight');  
+    });  
+}  
+  
+// Update search mode button text  
+function updateSearchModeButton() {  
+    if (searchModeToggle) {  
+        searchModeToggle.textContent = searchAllTabs ? 'Search All' : 'Current Tab';  
+        searchModeToggle.style.background = searchAllTabs ? 'var(--primary-color)' : '#059669';  
+    }  
+}  
+  
+// Update search input placeholder  
+function updateSearchPlaceholder(text) {  
+    searchInput.placeholder = text;  
+}  
+  
+// Reset search input placeholder  
+function resetSearchPlaceholder() {  
+    searchInput.placeholder = 'Search across all subjects or current tab...';  
+}  
+  
+// Show no results message  
+function showNoResults() {  
+    hideNoResults();  
+      
+    const activePanel = document.querySelector('.tab-panel.active');  
+    if (activePanel) {  
+        const noResultsDiv = document.createElement('div');  
+        noResultsDiv.className = 'no-results';  
+        noResultsDiv.id = 'noResultsMessage';  
+        noResultsDiv.innerHTML = `  
+            <h3>No results found</h3>  
+            <p>Try searching with different keywords or switch to "Current Tab"</p>  
+        `;  
+        activePanel.appendChild(noResultsDiv);  
+    }  
+}  
+  
+// Show no results in current tab  
+function showNoResultsInCurrentTab() {  
+    hideNoResults();  
+      
+    const activePanel = document.querySelector('.tab-panel.active');  
+    if (activePanel) {  
+        const noResultsDiv = document.createElement('div');  
+        noResultsDiv.className = 'no-results';  
+        noResultsDiv.id = 'noResultsMessage';  
+        noResultsDiv.innerHTML = `  
+            <h3>No results found in this tab</h3>  
+            <p>Try searching in "Search All" or use different keywords</p>  
+        `;  
+        activePanel.appendChild(noResultsDiv);  
+    }  
+}  
+  
+// Hide no results message  
+function hideNoResults() {  
+    const existingMessage = document.getElementById('noResultsMessage');  
+    if (existingMessage) {  
+        existingMessage.remove();  
+    }  
+}  
+  
+// Add subject data attributes to cards  
+function addSubjectAttributes() {  
+    // Add physics subject attribute  
+    const physicsCards = document.querySelectorAll('#physics .subject-card');  
+    physicsCards.forEach(card => {  
+        if (!card.dataset.subject) {  
+            card.dataset.subject = 'physics';  
+        }  
+    });  
+      
+    // Add chemistry subject attribute  
+    const chemistryCards = document.querySelectorAll('#chemistry .subject-card');  
+    chemistryCards.forEach(card => {  
+        if (!card.dataset.subject) {  
+            card.dataset.subject = 'chemistry';  
+        }  
+    });  
+      
+    // Add mathematics subject attribute  
+    const mathematicsCards = document.querySelectorAll('#mathematics .subject-card');  
+    mathematicsCards.forEach(card => {  
+        if (!card.dataset.subject) {  
+            card.dataset.subject = 'mathematics';  
+        }  
+    });  
+      
+    // Add english subject attribute  
+    const englishCards = document.querySelectorAll('#english .english-card');  
+    englishCards.forEach(card => {  
+        if (!card.dataset.subject) {  
+            card.dataset.subject = 'english';  
+        }  
+    });  
+      
+    // Add question papers subject attribute  
+    const questionpaperCards = document.querySelectorAll('#questionpapers .subject-card');  
+    questionpaperCards.forEach(card => {  
+        if (!card.dataset.subject) {  
+            card.dataset.subject = 'questionpapers';  
+        }  
+    });  
+}  
+  
+// Animate cards on load  
+function animateCardsOnLoad() {  
+    const cards = document.querySelectorAll('.subject-card, .english-card');  
+    cards.forEach((card, index) => {  
+        card.style.animationDelay = `${index * 0.1}s`;  
+    });  
+}  
+  
+// Keyboard shortcuts  
+function handleKeyboardShortcuts(event) {  
+    // Ctrl/Cmd + K to focus search  
+    if ((event.ctrlKey || event.metaKey) && event.key === 'k') {  
+        event.preventDefault();  
+        searchInput.focus();  
+    }  
+      
+    // Escape to clear search  
+    if (event.key === 'Escape' && document.activeElement === searchInput) {  
+        searchInput.value = '';  
+        performSearch('');  
+        searchInput.blur();  
+    }  
+      
+    // Ctrl/Cmd + Shift + F to toggle search mode  
+    if ((event.ctrlKey || event.metaKey) && event.shiftKey && event.key === 'F') {  
+        event.preventDefault();  
+        handleSearchModeToggle();  
+    }  
+      
+    // Ctrl/Cmd + D to toggle dark mode  
+    if ((event.ctrlKey || event.metaKey) && event.key === 'd') {  
+        event.preventDefault();  
+        toggleDarkMode();  
+    }  
+      
+    // Ctrl/Cmd + B to focus on bookmarks tab  
+    if ((event.ctrlKey || event.metaKey) && event.key === 'b') {  
+        event.preventDefault();  
+        const bookmarksTab = document.querySelector('[data-tab="bookmarks"]');  
+        if (bookmarksTab) {  
+            bookmarksTab.click();  
+        }  
+    }  
+}  
+  
+// Initialize color picker  
+function initializeColorPicker() {  
+    setupColorPickerTabs();  
+    setupThemeSelection();  
+    setupColorInputs();  
+    setupModeSelector();  
+    setupColorPickerEvents();  
+    loadSavedTheme();  
+}  
+  
+// Setup color picker tabs  
+function setupColorPickerTabs() {  
+    colorPickerTabs.forEach(tab => {  
+        tab.addEventListener('click', function() {  
+            const tabName = this.dataset.tab;  
+              
+            // Update tab states  
+            colorPickerTabs.forEach(t => t.classList.remove('active'));  
+            colorPickerSections.forEach(s => s.classList.remove('active'));  
+              
+            this.classList.add('active');  
+            document.getElementById(tabName).classList.add('active');  
+        });  
+    });  
+}  
+  
+// Setup theme selection  
+function setupThemeSelection() {  
+    themeOptions.forEach(option => {  
+        option.addEventListener('click', function() {  
+            const themeName = this.dataset.theme;  
+              
+            // Update selection  
+            themeOptions.forEach(opt => opt.classList.remove('selected'));  
+            this.classList.add('selected');  
+              
+            // Load theme  
+            currentTheme = themeName;  
+            loadThemeToInputs(themeName);  
+        });  
+    });  
+}  
+  
+// Setup color inputs  
+function setupColorInputs() {  
+    const inputPairs = [  
+        ['bgColor1', 'bgColor1Hex'],  
+        ['bgColor2', 'bgColor2Hex'],  
+        ['primaryColor', 'primaryColorHex'],  
+        ['secondaryColor', 'secondaryColorHex'],  
+        ['accentColor', 'accentColorHex'],  
+        ['textColor', 'textColorHex'],  
+        ['textLightColor', 'textLightColorHex']  
+    ];  
+  
+    inputPairs.forEach(([colorId, hexId]) => {  
+        const colorInput = document.getElementById(colorId);  
+        const hexInput = document.getElementById(hexId);  
+  
+        if (colorInput && hexInput) {  
+            colorInput.addEventListener('input', function() {  
+                hexInput.value = this.value;  
+                updateColorInputs();  
+            });  
+  
+            hexInput.addEventListener('input', function() {  
+                if (this.value.match(/^#[0-9A-F]{6}$/i)) {  
+                    colorInput.value = this.value;  
+                    updateColorInputs();  
+                }  
+            });  
+        }  
+    });  
+}  
+  
+// Setup mode selector  
+function setupModeSelector() {  
+    if (modeSelector) {  
+        modeSelector.addEventListener('change', function() {  
+            currentMode = this.value;  
+            loadCurrentModeToInputs();  
+        });  
+    }  
+}  
+  
+// Setup color picker events  
+function setupColorPickerEvents() {  
+    if (colorPickerToggle) {  
+        colorPickerToggle.addEventListener('click', () => {  
+            colorPickerModal.classList.add('active');  
+            colorPickerOverlay.classList.add('active');  
+              
+            // Set mode selector to current mode  
+            const isDarkMode = document.body.classList.contains('dark-mode');  
+            if (modeSelector) {  
+                modeSelector.value = isDarkMode ? 'dark' : 'light';  
+            }  
+            currentMode = isDarkMode ? 'dark' : 'light';  
+            loadCurrentModeToInputs();  
+        });  
+    }  
+  
+    if (colorPickerCancel) {  
+        colorPickerCancel.addEventListener('click', closeColorPicker);  
+    }  
+  
+    if (colorPickerOverlay) {  
+        colorPickerOverlay.addEventListener('click', closeColorPicker);  
+    }  
+  
+    if (colorPickerApply) {  
+        colorPickerApply.addEventListener('click', function() {  
+            applyTheme();  
+            saveTheme();  
+            closeColorPicker();  
+            showNotification('Theme applied successfully!', 'success');  
+        });  
+    }  
+  
+    if (colorPickerReset) {  
+        colorPickerReset.addEventListener('click', function() {  
+            if (confirm('Are you sure you want to reset to the default theme? This will override your current customizations.')) {  
+                resetToDefault();  
+                showNotification('Theme reset to default!', 'info');  
+            }  
+        });  
+    }  
+}  
+  
+// Load theme to inputs  
+function loadThemeToInputs(themeName) {  
+    if (!themes[themeName]) return;  
+      
+    const theme = themes[themeName][currentMode];  
+      
+    Object.keys(theme).forEach(key => {  
+        const colorInput = document.getElementById(key);  
+        const hexInput = document.getElementById(key + 'Hex');  
+          
+        if (colorInput && hexInput) {  
+            colorInput.value = theme[key];  
+            hexInput.value = theme[key];  
+        }  
+    });  
+      
+    colorInputs[currentMode] = { ...theme };  
+}  
+  
+// Load current mode to inputs  
+function loadCurrentModeToInputs() {  
+    const colors = colorInputs[currentMode];  
+      
+    Object.keys(colors).forEach(key => {  
+        const colorInput = document.getElementById(key);  
+        const hexInput = document.getElementById(key + 'Hex');  
+          
+        if (colorInput && hexInput) {  
+            colorInput.value = colors[key];  
+            hexInput.value = colors[key];  
+        }  
+    });  
+}  
+  
+// Update color inputs  
+function updateColorInputs() {  
+    const inputs = ['bgColor1', 'bgColor2', 'primaryColor', 'secondaryColor', 'accentColor', 'textColor', 'textLightColor'];  
+      
+    inputs.forEach(inputId => {  
+        const input = document.getElementById(inputId);  
+        if (input) {  
+            colorInputs[currentMode][inputId] = input.value;  
+        }  
+    });  
+      
+    // Clear theme selection if custom colors are used  
+    themeOptions.forEach(opt => opt.classList.remove('selected'));  
+    currentTheme = null;  
+}  
+  
+// Apply theme - FIXED  
+function applyTheme() {  
+    const root = document.documentElement;  
+    const isDarkMode = document.body.classList.contains('dark-mode');  
+    const mode = isDarkMode ? 'dark' : 'light';  
+    const colors = colorInputs[mode];  
+      
+    console.log('Applying theme for mode:', mode, colors); // Debug log  
+      
+    // Apply CSS custom properties  
+    root.style.setProperty('--bg-color', `linear-gradient(135deg, ${colors.bgColor1} 0%, ${colors.bgColor2} 100%)`);  
+    root.style.setProperty('--primary-color', colors.primaryColor);  
+    root.style.setProperty('--primary-light', lightenColor(colors.primaryColor, 20));  
+    root.style.setProperty('--secondary-color', colors.secondaryColor);  
+    root.style.setProperty('--accent-color', colors.accentColor);  
+    root.style.setProperty('--text-color', colors.textColor);  
+    root.style.setProperty('--text-light', colors.textLightColor);  
+    root.style.setProperty('--text-muted', lightenColor(colors.textLightColor, 15));  
+      
+    // Update card backgrounds and borders based on mode  
+    if (isDarkMode) {  
+        root.style.setProperty('--card-bg', 'rgba(15, 23, 42, 0.4)');  
+        root.style.setProperty('--card-bg-solid', 'rgba(30, 41, 59, 0.95)');  
+        root.style.setProperty('--nav-bg', 'rgba(15, 23, 42, 0.6)');  
+        root.style.setProperty('--border-color', `${colors.accentColor}33`); // 20% opacity  
+    } else {  
+        root.style.setProperty('--card-bg', 'rgba(255, 255, 255, 0.25)');  
+        root.style.setProperty('--card-bg-solid', 'rgba(255, 255, 255, 0.9)');  
+        root.style.setProperty('--nav-bg', 'rgba(255, 255, 255, 0.15)');  
+        root.style.setProperty('--border-color', 'rgba(255, 255, 255, 0.2)');  
+    }  
+}  
+  
+// Save theme  
+function saveTheme() {  
+    const themeData = {  
+        currentTheme,  
+        colorInputs,  
+        timestamp: Date.now()  
+    };  
+      
+    localStorage.setItem('customTheme', JSON.stringify(themeData));  
+}  
+  
+// Load saved theme - FIXED  
+function loadSavedTheme() {  
+    // Ensure colorInputs are initialized with defaults first  
+    if (!colorInputs.light || !colorInputs.dark) {  
+        colorInputs.light = { ...themes.default.light };  
+        colorInputs.dark = { ...themes.default.dark };  
+    }  
+      
+    const savedTheme = localStorage.getItem('customTheme');  
+    console.log('Loading saved theme:', savedTheme); // Debug log  
+      
+    if (savedTheme) {  
+        try {  
+            const themeData = JSON.parse(savedTheme);  
+            console.log('Parsed theme data:', themeData); // Debug log  
+              
+            if (themeData.colorInputs) {  
+                colorInputs.light = { ...colorInputs.light, ...themeData.colorInputs.light };  
+                colorInputs.dark = { ...colorInputs.dark, ...themeData.colorInputs.dark };  
+            }  
+              
+            if (themeData.currentTheme) {  
+                currentTheme = themeData.currentTheme;  
+                const themeOption = document.querySelector(`[data-theme="${currentTheme}"]`);  
+                if (themeOption) {  
+                    themeOption.classList.add('selected');  
+                }  
+            }  
+              
+            loadCurrentModeToInputs();  
+        } catch (error) {  
+            console.error('Error loading saved theme:', error);  
+        }  
+    }  
+      
+    // Always apply theme at the end  
+    applyTheme();  
+}  
+  
+// Reset to default theme  
+function resetToDefault() {  
+    colorInputs.light = { ...themes.default.light };  
+    colorInputs.dark = { ...themes.default.dark };  
+    currentTheme = 'default';  
+      
+    // Update UI  
+    themeOptions.forEach(opt => opt.classList.remove('selected'));  
+    const defaultOption = document.querySelector('[data-theme="default"]');  
+    if (defaultOption) {  
+        defaultOption.classList.add('selected');  
+    }  
+      
+    loadCurrentModeToInputs();  
+    applyTheme();  
+    saveTheme();  
+}  
+  
+// Close color picker  
+function closeColorPicker() {  
+    colorPickerModal.classList.remove('active');  
+    colorPickerOverlay.classList.remove('active');  
+}  
+  
+// Helper function to lighten colors  
+function lightenColor(color, percent) {  
+    const num = parseInt(color.replace("#", ""), 16);  
+    const amt = Math.round(2.55 * percent);  
+    const R = (num >> 16) + amt;  
+    const G = (num >> 8 & 0x00FF) + amt;  
+    const B = (num & 0x0000FF) + amt;  
+      
+    return "#" + (0x1000000 + (R < 255 ? R < 1 ? 0 : R : 255) * 0x10000 +  
+        (G < 255 ? G < 1 ? 0 : G : 255) * 0x100 +  
+        (B < 255 ? B < 1 ? 0 : B : 255)).toString(16).slice(1);  
+}  
+  
+// Show notification function  
+function showNotification(message, type = 'info') {  
+    // Remove existing notifications  
+    const existingNotification = document.querySelector('.theme-notification');  
+    if (existingNotification) {  
+        existingNotification.remove();  
+    }  
+      
+    const notification = document.createElement('div');  
+    notification.className = `theme-notification theme-notification-${type}`;  
+    notification.innerHTML = `  
+        <i class="fas fa-${type === 'success' ? 'check-circle' : type === 'error' ? 'exclamation-circle' : 'info-circle'}"></i>  
+        <span>${message}</span>  
+    `;  
+      
+    document.body.appendChild(notification);  
+      
+    // Animate in  
+    setTimeout(() => notification.classList.add('show'), 100);  
+      
+    // Remove after 3 seconds  
+    setTimeout(() => {  
+        notification.classList.remove('show');  
+        setTimeout(() => notification.remove(), 300);  
+    }, 3000);  
+}  
+  
+// Export functions for global access  
+window.colorPickerFunctions = {  
+    applyTheme,  
+    resetToDefault,  
+    saveTheme,  
+    loadSavedTheme  
+};  
+  
+// Additional utility functions for better functionality  
+  
+// Debounce function for search  
+function debounce(func, wait) {  
+    let timeout;  
+    return function executedFunction(...args) {  
+        const later = () => {  
+            clearTimeout(timeout);  
+            func(...args);  
+        };  
+        clearTimeout(timeout);  
+        timeout = setTimeout(later, wait);  
+    };  
+}  
+  
+// Enhanced search with debouncing  
+const debouncedSearch = debounce(performSearch, 300);  
+  
+// Update search input handler to use debounced search  
+function handleSearchInput(event) {  
+    const query = event.target.value.trim();  
+    debouncedSearch(query);  
+}  
+  
+// Smooth scroll to top when switching tabs  
+function smoothScrollToTop() {  
+    window.scrollTo({  
+        top: 0,  
+        behavior: 'smooth'  
+    });  
+}  
+  
+// Enhanced tab switching with smooth scroll  
+function handleTabClick(event) {  
+    const clickedTab = event.currentTarget;  
+    const tabName = clickedTab.dataset.tab;  
+      
+    // Remove active class from all tabs and panels  
+    tabs.forEach(t => t.classList.remove('active'));  
+    panels.forEach(p => p.classList.remove('active'));  
+      
+    // Add active class to clicked tab and corresponding panel  
+    clickedTab.classList.add('active');  
+      
+    if (tabName === 'bookmarks') {  
+        loadBookmarks();  
+        document.getElementById(tabName).classList.add('active');  
+    } else {  
+        const targetPanel = document.getElementById(tabName);  
+        if (targetPanel) {  
+            targetPanel.classList.add('active');  
+        }  
+    }  
+      
+    // Reset search when switching tabs (if not in "search all" mode)  
+    if (!searchAllTabs) {  
+        searchInput.value = '';  
+        resetAllCards();  
+    }  
+      
+    // Smooth scroll to top  
+    smoothScrollToTop();  
+}  
+  
+// Enhanced error handling for localStorage  
+function safeLocalStorageGet(key, defaultValue = null) {  
+    try {  
+        const item = localStorage.getItem(key);  
+        return item ? JSON.parse(item) : defaultValue;  
+    } catch (error) {  
+        console.error(`Error reading from localStorage for key "${key}":`, error);  
+        return defaultValue;  
+    }  
+}  
+  
+function safeLocalStorageSet(key, value) {  
+    try {  
+        localStorage.setItem(key, JSON.stringify(value));  
+        return true;  
+    } catch (error) {  
+        console.error(`Error writing to localStorage for key "${key}":`, error);  
+        return false;  
+    }  
+}  
+  
+// Update bookmark functions to use safe localStorage  
+function handleBookmarkClick(event) {  
+    const button = event.target.closest('.bookmark-btn');  
+    const card = button.closest('.subject-card, .english-card');  
+      
+    if (!card) return;  
+      
+    button.classList.toggle('bookmarked');  
+    button.innerHTML = button.classList.contains('bookmarked') ?   
+        '<i class="fas fa-bookmark"></i>' : '<i class="far fa-bookmark"></i>';  
+      
+    // Save bookmark state  
+    const cardId = card.dataset.id;  
+    if (!cardId) return;  
+      
+    let bookmarks = safeLocalStorageGet('bookmarks', []);  
+      
+    if (button.classList.contains('bookmarked')) {  
+        // Add to bookmarks  
+        if (!bookmarks.includes(cardId)) {  
+            bookmarks.push(cardId);  
+            // Add slight animation when bookmarking  
+            button.classList.add('pulse');  
+            setTimeout(() => button.classList.remove('pulse'), 300);  
+        }  
+    } else {  
+        // Remove from bookmarks  
+        bookmarks = bookmarks.filter(id => id !== cardId);  
+    }  
+      
+    safeLocalStorageSet('bookmarks', bookmarks);  
+      
+    // If we're on the bookmarks tab, update it  
+    if (document.querySelector('.nav-tab[data-tab="bookmarks"]').classList.contains('active')) {  
+        loadBookmarks();  
+    }  
+}  
+  
+// Update bookmark initialization to use safe localStorage  
+function initializeBookmarks() {  
+    // Add IDs to all cards if they don't have them  
+    document.querySelectorAll('.subject-card, .english-card').forEach((card, index) => {  
+        if (!card.dataset.id) {  
+            const tabId = card.closest('.tab-panel').id;  
+            card.dataset.id = `${tabId}-${index}`;  
+        }  
+    });  
+      
+    // Load bookmark states  
+    const bookmarks = safeLocalStorageGet('bookmarks', []);  
+    bookmarks.forEach(cardId => {  
+        const button = document.querySelector(`[data-id="${cardId}"] .bookmark-btn`);  
+        if (button) {  
+            button.classList.add('bookmarked');  
+            button.innerHTML = '<i class="fas fa-bookmark"></i>';  
+        }  
+    });  
+}  
+  
+// Update loadBookmarks to use safe localStorage  
+function loadBookmarks() {  
+    const bookmarks = safeLocalStorageGet('bookmarks', []);  
+    bookmarksContainer.innerHTML = '';  
+      
+    if (bookmarks.length === 0) {  
+        bookmarksContainer.innerHTML = `  
+            <div class="bookmarks-empty">  
+                <p>You haven't saved any bookmarks yet.</p>  
+                <p>Click the <i class="far fa-bookmark"></i> icon on any resource to save it here.</p>  
+            </div>  
+        `;  
+        return;  
+    }  
+      
+    bookmarks.forEach(cardId => {  
+        const originalCard = document.querySelector(`[data-id="${cardId}"]`);  
+        if (originalCard) {  
+            const cardClone = originalCard.cloneNode(true);  
+            cardClone.style.display = 'block';  
+            bookmarksContainer.appendChild(cardClone);  
+        }  
+    });  
+}  
+  
+// Performance optimization: Intersection Observer for card animations  
+function setupIntersectionObserver() {  
+    const observerOptions = {  
+        threshold: 0.1,  
+        rootMargin: '0px 0px -50px 0px'  
+    };  
+      
+    const observer = new IntersectionObserver((entries) => {  
+        entries.forEach(entry => {  
+            if (entry.isIntersecting) {  
+                entry.target.style.opacity = '1';  
+                entry.target.style.transform = 'translateY(0)';  
+            }  
+        });  
+    }, observerOptions);  
+      
+    // Observe all cards  
+    document.querySelectorAll('.subject-card, .english-card').forEach(card => {  
+        card.style.opacity = '0';  
+        card.style.transform = 'translateY(20px)';  
+        card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';  
+        observer.observe(card);  
+    });  
+}  
+  
+// Initialize intersection observer after DOM load  
+document.addEventListener('DOMContentLoaded', function() {  
+    // Existing initialization  
+    initializeDashboard();  
+    setupEventListeners();  
+    initializeColorPicker();  
+    initializeDarkMode();  
+    initializeBookmarks();  
+    animateCardsOnLoad();  
+      
+    // New performance optimization  
+    setTimeout(setupIntersectionObserver, 500);  
+});  
+  
+// Add keyboard navigation for accessibility  
+function handleKeyboardNavigation(event) {  
+    const focusableElements = document.querySelectorAll(  
+        'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'  
+    );  
+    const focusedIndex = Array.from(focusableElements).indexOf(document.activeElement);  
+      
+    if (event.key === 'Tab') {  
+        // Let default tab behavior work  
+        return;  
+    }  
+      
+    if (event.key === 'ArrowRight' && event.ctrlKey) {  
+        event.preventDefault();  
+        const currentTabIndex = Array.from(tabs).findIndex(tab => tab.classList.contains('active'));  
+        const nextTabIndex = (currentTabIndex + 1) % tabs.length;  
+        tabs[nextTabIndex].click();  
+    }  
+      
+    if (event.key === 'ArrowLeft' && event.ctrlKey) {  
+        event.preventDefault();  
+        const currentTabIndex = Array.from(tabs).findIndex(tab => tab.classList.contains('active'));  
+        const prevTabIndex = currentTabIndex === 0 ? tabs.length - 1 : currentTabIndex - 1;  
+        tabs[prevTabIndex].click();  
+    }  
+}  
+  
+// Add the keyboard navigation to existing keyboard shortcuts  
+function handleKeyboardShortcuts(event) {  
+    // Existing shortcuts...  
+      
+    // Ctrl/Cmd + K to focus search  
+    if ((event.ctrlKey || event.metaKey) && event.key === 'k') {  
+        event.preventDefault();  
+        searchInput.focus();  
+    }  
+      
+    // Escape to clear search  
+    if (event.key === 'Escape' && document.activeElement === searchInput) {  
+        searchInput.value = '';  
+        performSearch('');  
+        searchInput.blur();  
+    }  
+      
+    // Ctrl/Cmd + Shift + F to toggle search mode  
+    if ((event.ctrlKey || event.metaKey) && event.shiftKey && event.key === 'F') {  
+        event.preventDefault();  
+        handleSearchModeToggle();  
+    }  
+      
+    // Ctrl/Cmd + D to toggle dark mode  
+    if ((event.ctrlKey || event.metaKey) && event.key === 'd') {  
+        event.preventDefault();  
+        toggleDarkMode();  
+    }  
+      
+    // Ctrl/Cmd + B to focus on bookmarks tab  
+    if ((event.ctrlKey || event.metaKey) && event.key === 'b') {  
+        event.preventDefault();  
+        const bookmarksTab = document.querySelector('[data-tab="bookmarks"]');  
+        if (bookmarksTab) {  
+            bookmarksTab.click();  
+        }  
+    }  
+      
+    // New keyboard navigation  
+    handleKeyboardNavigation(event);  
+}  
+  
+// Console welcome message  
+console.log(`  
+🎓 Engineering Study Resources Dashboard  
+📚 Version 2.0 - Enhanced with Theme Customization  
+🚀 Features: Search, Bookmarks, Dark Mode, Custom Themes  
+⌨️  Keyboard Shortcuts:  
+   • Ctrl/Cmd + K: Focus search  
+   • Ctrl/Cmd + D: Toggle dark mode  
+   • Ctrl/Cmd + B: Go to bookmarks  
+   • Ctrl/Cmd + Shift + F: Toggle search mode  
+   • Ctrl/Cmd + ←/→: Navigate tabs  
+   • Escape: Clear search  
+`);  
+   
+    
+    </script>
+   
+</body>
+</html>
